@@ -1,0 +1,105 @@
+/* pages/management/management.wxss */
+.role{
+  background-color: #eee;
+}
+.content{
+  display:flex;
+  padding:20rpx;
+  padding-top:24rpx;
+
+}
+.content_name{
+  height:38rpx;
+line-height:38rpx;
+padding-left:20rpx;
+color:#999999;
+font-size:30rpx;
+width:330rpx;
+overflow:hidden;
+margin-top:10rpx;
+
+
+}
+.content_money{
+  /* padding-top: 20rpx; */
+  font-size:25rpx;
+color:black;
+
+}
+.title_name{
+  width: 100%;
+  height:80rpx;
+  line-height: 80rpx;
+  text-align: center;
+
+  
+}
+.content_content{
+  /* display: flex; */
+}
+.content_order{
+ font-size:21rpx;
+color:#999999;
+padding-left:20rpx;
+width:349rpx;
+
+
+
+}
+.roleName{
+  background-color:#eee;
+  width:100%;
+  font-size:30rpx;
+    /* display: flex; */
+  /* flex-direction: row;
+    justify-content: space-around; */
+    /* overflow: hidden; */
+}
+.image{
+  height:70rpx;
+  width:70rpx;
+  border-radius: 50%;
+}
+.content_image{
+  padding-top:15rpx;
+}
+.content_role{
+  width:100%;
+  background-color:#fff;
+  border-bottom:1rpx solid #eee;
+  height:150rpx;
+
+}
+.title_name_content{
+ float:left;
+  width:278rpx;
+  text-align:left;
+  padding-left:20rpx;
+
+}
+.title_name_price{
+  padding-right:5px;
+  float:right;
+  width:278rpx;
+  text-align:left;
+
+}
+.iconfont{
+  font-size:56rpx;
+  color:#4AABF4;
+
+}
+.shezhi1{
+  width:250rpx;
+  height:100%;
+  text-align:right;
+  line-height:89rpx;
+
+}
+.shezhi{
+  width:50rpx;
+height:50rpx;
+margin-left:200rpx;
+
+
+}

@@ -1,0 +1,39 @@
+.login_info{  
+  z-index: 999;  
+  position:absolute;
+  top:206rpx;
+  width:700rpx;
+ 
+}  
+.login_form{  
+  border-radius:5px;  
+  margin-left:8%;  
+  background-color:#fff;
+  opacity:0.9;
+}  
+.weui-cell__bd textarea{
+  height:46rpx;
+
+}
+
+.item1{
+    height:183rpx;
+    width:183rpx;  
+    border: 1px solid #fff
+}
+.wayne-temper-add {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px dashed #A8A8A8;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.text1 {
+    font-size: 30px;
+    margin-top: 0px;
+}
+
+.shibiehao{
+  font-size: 24rpx;
+}

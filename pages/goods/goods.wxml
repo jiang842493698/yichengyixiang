@@ -1,0 +1,83 @@
+<view class="container">
+    <view class="ar_cont">
+       <form report-submit="true" bindsubmit="evaSubmit"  >
+        <text class="search-keyword-title">场地类型名称</text>
+        <view class="section">
+             <input class="ar_date" name="name" placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder="请输入场地类型名称" />
+        </view>
+<!--         
+        <text class="search-keyword-title">场地价格</text>
+        
+          <view class="section">
+              <input class="ar_date" name="price" bindblur='onPrice'  placeholder-style="color:#999;font-size:28rpx;" type="digit" placeholder='请输入场地价格' />
+          </view> -->
+        <text class="search-keyword-title"  >场地类型</text>
+    <!--
+        value: value值表示选择了让的第几个，index===下标  从0开始
+        rang：对应数据
+        bindchang:value改变时触发的事件
+     -->
+    <picker bindchange='bindPickerChang' value='{{index}}' range='{{array}}'>
+        <view class='section ar_date'>
+            当前的选择：{{array[index]}}
+        </view>
+    </picker>
+      <view class='search-keyword'>
+        <text class="search-keyword-title info">描述</text>
+
+    <view class='duohangwenben'>
+   
+            <textarea class='duohangwenbens' style='margin:20rpx;height:250rpx;' name="evaContent" maxlength="500" value="{{evaContent}}" class="weui-textarea"  placeholder="填写内容(2-500字)" bindblur="charChange" />  
+   
+     
+     <view class="ar_date_time">
+           <view class="wayne-temper-img fl" id="wx_img"  > 
+            
+            <!-- <view bindtap='bindChooiceProduct' class="wayne-temper-add" id="temper-add" style="margin-top: 5px;" onclick="TEMPER.chooseImage('')">
+
+                <view class='text1'  style="color: #d8d8d9;">
+                    +
+                </view>
+            </view>
+          </view> -->
+          <view class='urls'>
+
+             <view bindtap='bindChooiceProduct' class="wayne-temper-add" id="temper-add" style="margin-top: 5px;" onclick="TEMPER.chooseImage('')">
+
+                <view class='text1'  style="color: #d8d8d9;">
+                    +
+                </view>
+            </view>
+          </view> 
+            <view  wx:for="{{urls}}">
+              
+              <image src='{{item}}'  mode="aspectFill" class="item1 {{urls.length>3?'':'items'}}">
+                <view class='guanbi' bindtap='guanbi' data-id='{{index}}'>
+                  x
+                </view>
+              </image>
+            </view>
+          </view>
+          <!-- <view wx:for="{{urls}}">
+              <view class='guanbi' bindtap='guanbi' data-id='{{index}}'>
+                x
+              </view>
+              <image src='{{item}}' mode="aspectFill" class="item1"></image>
+          </view> -->
+        </view>  
+    </view>
+     </view> 
+      
+      
+   
+
+    <!-- <view class="search-keyword">
+        <view class="search-keyword-title">标签选择</view>
+        <view wx:for="{{hotTag}}" class="search-keyword-item {{item.isSelect?'huise':''}}" data-keyword="{{item.name}}" bindtap="searchByTag" name="hotTag" data-id='{{item.id}}'>{{item.name}}</view>        
+    </view> -->
+
+    <button class="ar_book"  report-submit='true' formType="submit" disabled="{{subdisabled}}" bindtap="bindToastTap">确认添加</button>
+ </form>
+    </view>
+
+</view>

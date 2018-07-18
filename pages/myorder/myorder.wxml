@@ -1,0 +1,92 @@
+<view>
+
+  <view class="nav_top">
+    
+      <view class="nav_top_items {{curNavId ==1? 'active_'+colors[0] : ''}}"     data-index="{{index}}" bindtap='navTosearch' data-id="1">
+        <text>全部</text>
+      </view>
+  
+       <view class="nav_top_items {{curNavId ==2 ? 'active_'+colors[1] : ''}}"     data-index="{{index}}" bindtap='navTosearch' data-id="2">
+       
+        <text>待确认</text>
+       </view>
+       <view class="nav_top_items {{curNavId == 3 ? 'active_'+colors[2] : ''}}"     data-index="{{index}}" bindtap='navTosearch' data-id="3">
+       
+        <text>已确认</text>
+      </view>
+        <view class="nav_top_items {{curNavId ==4 ? 'active_'+colors[3] : ''}}"     data-index="{{index}}" bindtap='navTosearch' data-id="4">
+        <text>已完成</text>
+      </view> 
+       <view class="nav_top_items {{curNavId ==5 ? 'active_'+colors[4] : ''}}"     data-index="{{index}}" bindtap='navTosearch' data-id="5">
+        <text>已取消</text>
+      </view> 
+  </view>
+   <view class='spaceitem'></view>
+  <scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
+      <!--list-->
+      <view class="nav_section">
+        <view wx:if="{{orders.length>0}}">
+            <block wx:for="{{orders}}"  wx:for-index="index">
+              <view class='order_cont'>
+                 <view class='order_tongji'>
+                  <view class='order_tj' style='float:left;margin-left:10rpx'>{{index+1}}，{{item.spotname}}景区   》</view>
+
+                   <view style='float:right' class='isPayOrder {{item.status==1?"":"weifukuan"}}' bindtap='{{item.status==1?"":"weifukuan"}}' data-index='{{index}}' data-id='{{item.id}}'>{{item.process==null?'待商家确认':item.process}}</view>
+                </view>
+                <view class="nav_section_items" wx:for="{{item.exchanges}}" wx:for-item="goods">
+                    <!--image-->
+                    <view class="section_image" >
+                      <block wx:if="{{goods.goodimg}}">
+                          <image src="{{goods.goodimg}}" mode="aspectFill"></image>
+                      </block>
+                      <block wx:else>
+                          <image src="/images/default_pic.png" mode="aspectFill"></image>
+                      </block>
+                    </view>
+                    <!--content-->
+                    <view class="section_cont" >
+                        <view class="section_cont_sub">
+                            <text>{{goods.name}}</text>
+                        </view>
+                    </view>
+                    <view class='section_cont_right'>
+                      <view class='section_cont_price'>
+                        <view>+{{goods.count}}</view>
+                      </view>
+                    </view>
+                </view>
+               
+                <view class='order_tongji'>
+                  <view class='order_tj'>共{{item.exchanges.length}}个商品 合计订金：￥{{item.money/100}}</view>
+                </view>
+                 <view class='order_tongji'  wx:if="{{item.admin&&item.mobile}}">
+         
+                      <view class="nav_section_items">
+                             <view >联系人：{{item.admin}},电话：{{item.mobile}}</view> 
+                      </view>
+                </view>
+                <view class='order_caozuo'>
+                  <view class='order_caozuo_in'>
+                    
+                    <!-- <view class='deleteOrder weifukuan' bindtap='{{deleteOrders}}' data-id='{{item[0].id}}'>取消订单</view>  -->
+                  </view>
+                  <view style='float:left;margin-left:20rpx;color:#cdcdcd'>{{item.createAt}}</view>
+                </view>
+              </view>
+              <view class='spaceitem'></view>
+            </block>
+        </view>
+        <view wx:else class="nodata">
+          <view class='kongOrder'>
+            <view class='kongOrder_image'>
+              <image mode="aspectFit" src='/images/icon.png'></image>
+            </view>
+            <view class='kongOrder_text'>目前您还没有任何订单哦，赶紧下单去吧</view>
+            <view class='kongOrder_button' bindtap='goShopping'>
+              去下单
+            </view>
+          </view>
+        </view>   
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,200 @@
+/* pages/technicain_ticket_buy/ticket_buy.wxss */
+@import '../../template/calendar/index.wxss';
+.container{
+    background:#f2f3f4;
+}
+/*主容器*/  
+.stepper {  
+   
+    height: 26px;  
+    /*给主容器设一个边框*/  
+    border: 1px solid #ccc;  
+    border-radius: 3px;  
+    margin:0 auto;  
+}  
+  
+/*加号和减号*/  
+.stepper text {  
+    width:56rpx;
+
+  
+    line-height: 26px;  
+    text-align: center;  
+    float: left;  
+}  
+  
+/*数值*/  
+.stepper input {  
+    width: 40px;  
+    height: 26px;  
+    float: left;  
+    margin: 0 auto;  
+    text-align: center;  
+    font-size: 12px;  
+    /*给中间的input设置左右边框即可*/  
+    border-left: 1px solid #ccc;  
+    border-right: 1px solid #ccc;  
+}  
+  
+/*普通样式*/  
+.stepper .normal{  
+    color: black;  
+}  
+  
+/*禁用样式*/  
+.stepper .disabled{  
+    color: #ccc;  
+}  
+
+.chupiao{
+  width: 100%;
+  padding: 8px 12px;
+  height: 34px;
+  background: #fff;
+  /* margin-top: 15px; */
+  line-height: 34px;
+  
+
+}
+.chupiaos{
+  width: 100%;
+  padding: 8px 12px;
+  height: 34px;
+  background: #fff;
+  /* margin-top: 15px; */
+  line-height: 34px;
+  display:flex;
+
+}
+.chuimg{
+  float: left;
+  font-size: 28rpx;
+   margin-left: 8px; 
+}
+.chufonts{
+  font-size: 32rpx;
+  font-weight: bolder;
+}
+.chufont{
+
+  float: left;
+  font-size: 28rpx;
+}
+.chuimg{
+  width: 25%;
+  height:34px; 
+}
+.chuimg.date{
+  width: 100%;
+  background-color: #349af0;
+  text-align: center;
+  color: white;
+  margin-top:-26rpx;
+  margin-left: 0rpx; 
+  font-size: 30rpx;
+}
+.chu{
+  width: 100%;
+  height: 35px;
+}
+.chunfont{
+  margin-left: 10px;
+}
+
+.search-bottom {
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100rpx;
+    padding: 0rpx;
+    background-color: #fff;
+    text-align: center;
+
+    box-shadow: 0 10rpx 60rpx rgba(0, 0, 0, .3);
+}
+
+
+.bstat{
+  font-size: 13px;
+  line-height: 30px;
+}
+
+.f1{
+   
+  }
+
+  .f2{
+    float: right;
+  }
+
+  .f3{
+    float:left;
+    text-align:left;
+    margin-top:22rpx;
+    margin-left:20rpx;
+
+  }
+  .dateTime{
+    width:120rpx;
+    font-size:28rpx;
+    border:1rpx solid #ccc;
+    text-align:center;
+    margin-right:30rpx;  
+  }
+.selectDate{
+
+}  
+.kucun{
+  float:right;
+  padding-right:10rpx;
+  font-size:28rpx;
+  color:#cdcdcd;
+  margin-right:16rpx;
+
+}
+.price{
+  font-size:34rpx;
+    color:#ff9913;
+    /* position:absolute; */
+  /* right:55rpx; */
+  /* top:100rpx; */
+  font-weight: bolder;
+  margin-top: 10rpx;
+}
+.f1{
+  display: flex;
+  width:448rpx;
+  margin-right: 0rpx;
+  float: right;
+}
+.f11{
+  display: flex;
+ 
+  margin-right: 0rpx;
+  float: right;
+}
+.addcart{
+  border-radius:0rpx;
+   width:224rpx; 
+  height:100rpx;
+  margin-top:0rpx;
+  background-color:#FF7033;
+  line-height:100rpx;
+  color:white;
+  text-align:center;
+  font-size:32rpx;
+ 
+   
+
+}
+.pay{
+  background-color:#FF3333;
+}
+.heji{
+  color: #333;
+  font-size: 26rpx;
+  font-weight: normal;
+}

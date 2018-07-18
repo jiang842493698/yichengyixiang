@@ -1,0 +1,88 @@
+<!--hotest.wxml-->
+<view class="review">
+  <view class='review_body'>
+    <view class='review_body_left'>
+      <view class='review_body_left_in {{chuliId==1?"isSelect":""}}' bindtap='chuli' data-id='1'>待处理</view>
+    </view>
+    <view class='review_body_left'>
+      <view class='review_body_left_in {{chuliId==2?"isSelect":""}}' bindtap='chuli' data-id='2'>已处理</view>
+    </view>
+  </view>
+   <!-- <view class="topic-main" wx:if="{{hotest.length>0}}">
+      <block wx:for="{{hotest}}">
+        <view class="topic-item" index="{{index}}" id="{{item.id}}" catchtap="redictDetail">
+            <image class="member-avatar" src="{{item.headicon}}" background-size="cover"></image>
+            
+            <view class="topic-info">
+                <view class=''></view>
+                <view class="topic-inner">
+                    <view class="topic-left">
+                      <view class='biaoti'>
+                         
+                          <view>联系电话:{{item.mobile}}</view>
+                          <view wx:if="{{item.today}}">
+                            <text class="member-nickname">{{item.startTime}}</text>
+                            <text class="member-nickname">{{item.startTimeType}}</text>
+                          </view>
+                          <view wx:if="{{!item.today}}">
+                            <text class="member-nickname">{{item.startTime}}</text>
+                            <text class="member-nickname">{{item.startTimeType}}</text>
+                            ---
+                            <text class='member-nickname'>{{item.endTime}}</text>
+                            <text class="member-nickname">{{item.endTimeType}}</text>
+                          </view>
+                      </view>
+                      <view class="topic-title">
+                        <textarea class='content'>{{item.content}}</textarea>
+                      </view>
+                    </view>
+                    
+                </view>
+
+            </view>
+            <view class='checkbox' bindtap='onSelect' data-id='{{item.id}}'>
+               <checkbox  value="key1" size="mini" checked="{{item.process==2}}"/> 
+            </view>
+        </view>
+      </block>
+  </view>  -->
+   <view class='review_contents' wx:for="{{hotest}}">
+     <view class='info'>
+          <view class='time'>{{item.createAt}}</view>
+          <view class='infoimg' style='background-image:url("{{item.headicon}}");'>
+          </view>
+          <view class='inforight'>
+            <view class='name'>{{item.name}}（{{item.mobile}}）</view>
+            <view class='address'>活动时间：{{item.startTime}} {{item.startTimeType}}<text wx:if="{{!item.today}}">-{{item.endTime}} {{item.endTimeType}}</text></view>
+            
+          </view>
+     </view> 
+      <view class='desc'>
+        
+        {{item.content}}
+      </view>
+     
+       <view class='status'>
+           <view class='passstatus nopass' bindtap='{{item.process==1?"onSelect":""}}' data-id='{{item.id}}'>{{item.process==2?"已处理":"未处理"}}</view>
+         
+      </view> 
+      <!-- <view class='status' wx:if="{{item.process==1}}">
+        <button class='passstatus nopass' bindtap='onSelect' data-id='{{item.id}}'>驳回
+        </button>
+        <button class='passstatus pass' formType='submit' >
+        通过
+        </button>
+      </view>
+      <view class='status' wx:if="{{item.process==2}}">
+        <view class='passstatuss'>已驳回</view>
+       
+      </view>
+      <view class='status' wx:if="{{item.process==3}}">
+        <view class='passstatuss'>已通过</view>
+        
+      </view> -->
+  </view>   
+  
+  
+</view>
+

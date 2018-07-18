@@ -1,0 +1,52 @@
+<view class="page__bd">    
+  <view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" class="back_img">  
+  </view>  
+  <form bindsubmit="formSubmit" bindreset="formReset">  
+    <view class="login_info" >  
+      <view class="weui-cells weui-cells_after-title login_form">  
+        <view class="weui-cell weui-cell_input">  
+          <view class="weui-cell__hd">  
+            <view class="weui-label">手机号</view>  
+          </view>  
+          <view class="weui-cell__bd">  
+            <input class="weui-input" style='color:#333;' placeholder="请输入手机号" bindinput='onPhone' type="text" focus="true" name="iphone"/>  
+          </view>  
+        </view>  
+        <view class="weui-cell weui-cell_input">  
+          <view class="weui-cell__hd">  
+            <view class="weui-label">验证码</view>  
+          </view>  
+          <view class="weui-cell__bd">  
+            <input class="weui-input" style='color:#333;' placeholder="请输入验证码"  bindinput='onCode'/>  
+          </view>  
+          
+          <view class="weui-cell__bd" wx:if="{{counting}}" bindtap="getCode">  
+            <text style="color:#2b93ee;">{{timeCountDownTop==0||timeCountDownTop==null?"获取验证码":timeCountDownTop}}</text> 
+          </view>
+          <view class="weui-cell__bd counting" wx:if="{{!counting}}" bindtap="">  
+            <text style="color:#999;">{{timeCountDownTop==0||timeCountDownTop==null?"获取验证码":timeCountDownTop}}</text> 
+          </view>
+        </view>  
+       
+        <view class="weui-cell weui-cell_input">  
+          <view class="weui-cell__hd">  
+            <view class="weui-label">营业执照</view>  
+          </view>  
+          <view class="weui-cell__bd" id="wx_img">  
+            <view bindtap='bindChooiceProduct' style='color:#333;' class="weui-cell__bd wayne-temper-add" onclick="TEMPER.chooseImage('')">
+              <view class='text1' style="color: #d8d8d9;">
+                 +
+              </view>
+            </view>
+          </view>  
+          <view wx:for="{{urls}}" class='weui-cell__bd'>
+            <image src='{{item}}' mode="aspectFill" class="item1"></image>
+          </view>
+        </view>  
+      </view>  
+      <view class="weui-btn-area" style="margin-left:8%">  
+          <button type="primary" formType="submit" style="background-color:#2b93ee">保存</button>  
+      </view>  
+    </view>  
+  </form>  
+</view>  

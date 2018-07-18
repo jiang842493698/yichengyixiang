@@ -1,0 +1,140 @@
+
+.search {
+    
+    width: 100%;
+    display: inline-block;
+    background:#efefef;
+    z-index: 1;
+}
+
+.search_not_value {}
+
+.search_not_value .search-delete {
+    opacity: 0;
+    transform: scale(0, 0);
+    -webkit-transform: scale(0, 0);
+}
+
+.search-body {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    margin: 16rpx;
+    top: 0;
+}
+
+.search-input {
+    flex: 1;
+}
+
+.search-box {
+    /* height: 59rpx; */
+    background-color: #fff;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    border-radius: 36rpx;
+    padding: 0 20rpx;
+    height: 63rpx;
+    border: 1rpx solid #e6e6ea;
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+}
+
+.search-icon view {
+    /* height: 100%; */
+    display: inline-block;
+    align-items: center;
+}
+
+.search-box input {
+    padding: 0 10rpx;
+    width: 100%;
+    font-size: 26rpx;
+}
+
+.search-delete {
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    color: #7e7f86;
+}
+
+.search-btn {
+    text-align: center;
+    padding: 8rpx 10rpx;
+    color: #6288d5;
+    font-size: 32rpx;
+}
+
+.search-btn view {
+    display: inline-block;
+}
+
+
+.fitler-count {
+    color: #b2b2b2;
+    font-size: 24rpx;
+    padding: 15rpx 30rpx;
+}
+
+.keyword {}
+
+.keyword-list {
+    padding: 30rpx;
+}
+
+.k-head {
+    display: flex;
+    display: -webkit-flex;
+    font-size: 26rpx;
+    color: #666;
+    margin-bottom: 10rpx;
+}
+
+.k-title {
+    flex: 1;
+}
+
+.k-body {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+}
+
+.k-item {
+    display: flex;
+    display: -webkit-flex;
+    width: 50%;
+    font-size: 28rpx;
+    padding: 10rpx 0;
+}
+
+.k-value {
+    flex: 1;
+    padding: 10rpx 20rpx;
+}
+
+.k-delete {
+    color: #ccc;
+    padding-right: 50rpx;
+}
+
+.k-host {}
+
+.k-host .k-body {
+    display: block;
+}
+
+.k-host .k-item {
+    width: auto;
+    display: inline-block;
+}
+
+.k-host .k-value {
+    border: 1rpx solid #e6e6e6;
+    border-radius: 5rpx;
+    margin-right: 10rpx;
+}

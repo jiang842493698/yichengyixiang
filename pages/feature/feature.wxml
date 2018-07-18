@@ -1,0 +1,46 @@
+<!--technician.wxml-->
+
+<view class="container">
+<scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
+  
+  <!--list-->
+  <view class="nav_section">
+    <view wx:if="{{list}}">
+        <block wx:for="{{list}}" wx:key="item.id">
+            <view class="nav_section_items" bindtap="navigateDetail" data-aid="{{item.id}}">
+                <!--image-->
+                <view class="section_image" >
+ 
+                <block wx:if="{{item.img}}">
+                    <image src="{{item.img}}!trainvipimg" mode="aspectFill"></image>
+                </block>
+                <block wx:else>
+                    <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                </block>
+                </view>
+                <!--content-->
+                <view class="section_cont" >
+                    <view class="section_cont_sub">
+                        <text>{{item.name}}</text>
+                    </view>
+                    <view class="section_cont_price" style="color:#000">{{item.nickname}}<text class="section_cont_price">{{item.price}}元</text></view>
+                    <view>{{item.description}}</view>
+                </view>
+                <!--book-->
+                <view class='ar_sevice_item'>
+                  <view class="section_book" >
+                      <view>预定</view>   
+                  </view>
+                </view>
+            </view>
+            
+        </block>
+    </view>
+    
+    <view wx:else>暂无数据</view>
+          
+</view>
+
+</scroll-view>
+  <!-- <button class="ar_book" bindtap="bookTap">立即预定</button> -->
+</view>

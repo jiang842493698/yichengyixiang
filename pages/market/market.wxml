@@ -1,0 +1,49 @@
+<!--hotest.wxml-->
+<view class="container">
+  <view class="topic-main" wx:if="{{hotest.length>0}}">
+      <block wx:for="{{hotest}}">
+        <view class="topic-item" index="{{index}}" id="{{item.id}}" catchtap="redictDetail">
+            <image class="member-avatar" src="{{item.headicon}}" background-size="cover"></image>
+            
+            <view class="topic-info">
+                <view class=''></view>
+                <view class="topic-inner">
+                    <view class="topic-left">
+                      <view class='biaoti'>
+                          <!-- <text class="node-name">{{item.name}}</text> -->
+                          <view wx:if="{{item.today}}">
+                            <text class="member-nickname">{{item.startTime}}</text>
+                            <text class="member-nickname">{{item.startTimeType}}</text>
+                          </view>
+                          <view wx:if="{{!item.today}}">
+                            <text class="member-nickname">{{item.startTime}}</text>
+                            <text class="member-nickname">{{item.startTimeType}}</text>
+                            ---
+                            <text class='member-nickname'>{{item.endTime}}</text>
+                            <text class="member-nickname">{{item.endTimeType}}</text>
+                          </view>
+                      </view>
+                      <view class="topic-title">
+                        <textarea class='content'>{{item.content}}</textarea>
+                      </view>
+                    </view>
+                    <!-- <view class="reply-num">{{item.tags}}</view> -->
+                </view>
+            </view>
+        </view>
+      </block>
+  </view>
+  <view wx:else class="nodata">
+    <view class='kongOrder'>
+      <view class='kongOrder_image'>
+        <image mode="aspectFit" src='/images/icon.png'></image>
+      </view>
+      <view class='kongOrder_text'>目前您还没有任何需求哦，赶紧去发布需求吧</view>
+       <view class='kongOrder_button' bindtap='goShopping'>
+        发布需求
+      </view> 
+    </view>
+  </view>   
+  
+</view>
+

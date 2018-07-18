@@ -1,0 +1,78 @@
+<!--pages/orderManages/orderManages.wxml-->
+<view>
+  <scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
+      <!--list-->
+      <view class="nav_section">
+        <view wx:if="{{orders.length>0}}">
+            <block wx:for="{{orders}}" wx:for-index="index">
+              <view class='order_cont'>
+                 <view class='order_tongji'>
+                  <view class='order_tj' style='float:left;margin-left:10rpx'>{{index+1}}，订单:{{item.out_trade_no}}</view>
+
+                   <view style='float:right' class='isPayOrder {{item.status==1?"":"weifukuan"}}' bindtap='{{item.status==1?"":"weifukuan"}}' data-index='{{index}}' data-id='{{item.id}}'>{{item.process==null?'待商家确认':item.process}}</view>
+                </view>
+                <view class="nav_section_items" wx:for="{{item.exchanges}}" wx:for-item="goods">
+                    <!--image-->
+                    <view class="section_image" >
+                      <block wx:if="{{goods.goodimg}}">
+                          <image src="{{goods.goodimg}}" mode="aspectFill"></image>
+                      </block>
+                      <block wx:else>
+                          <image src="/images/default_pic.png" mode="aspectFill"></image>
+                      </block>
+                    </view>
+                    <!--content-->
+                    <view class="section_cont" >
+                        <view class="section_cont_sub">
+                            <text>{{goods.name}}</text>
+                        </view>
+                    </view>
+                    <view class='section_cont_right'>
+                      <view class='section_cont_price'>
+                        <view>+{{goods.count}}</view>
+                      </view>
+                    </view>
+                </view>
+                <view class='order_tongji'>
+                  <view class='order_tj'>用户：{{item.name}},电话：{{item.mobile}}</view>
+                </view>
+                   <view class='order_tongji'>
+                  <view class='order_tj'>共{{item.exchanges.length}}个商品 合计订金：￥{{item.money/100}}元</view>
+                </view>
+                <view  style='background-color:#cdcdcd' class='order_tongji' style='text-align:right' wx:if="{{item.process=='已完成'}}">
+                  订单总额：{{item.allprice/100}}元，尾款支付:{{item.amountBilled/100}}元
+                </view>
+                <view class='order_caozuo'>
+                  <view class='order_caozuo_in'>
+                    
+                    <view wx:if="{{item.process==null}}" class='deleteOrder weifukuan' style='background-color:#44bbbb' bindtap='confirmData' data-process="商家已确认" data-id='{{item.id}}'>确认订单</view> 
+
+                      <view wx:if="{{item.process==null}}" class='deleteOrder weifukuan' style='background-color:#E69480' bindtap='confirmData' data-process="订单取消" data-id='{{item.id}}'>取消订单</view>
+
+                      <view wx:if="{{item.process&&item.process!='已完成'&&item.process!='订单取消'}}" class='deleteOrder weifukuan' style='background-color:#72E3E3' bindtap='endBanlace' data-process="尾款结算" data-id='{{item.id}}'>尾款结算</view> 
+
+                                   <view wx:if="{{item.process=='已完成'}}">完成订单</view>  <view wx:if="{{item.process=='订单取消'}}">订单取消</view> 
+                  </view>
+                  
+                  <view style='float:left;margin-left:20rpx;color:#cdcdcd'>{{item.createAt}}</view>
+                </view>
+              </view>
+                
+            </block>
+        </view>
+        <view wx:else class="nodata">
+          <view class='kongOrder'>
+            <view class='kongOrder_image'>
+              <image mode="aspectFit" src='/images/icon.png'></image>
+            </view>
+            <view class='kongOrder_text'>目前还没有任何订单哦</view>
+           
+          </view>
+        </view>   
+    </view>
+  </scroll-view>
+</view>
+
+<view class='mask' hidden='{{maskFlag}}'>
+  <image style='width:230rpx;height:230rpx' src="http://antownimg.b0.upaiyun.com/mer/timg.gif" mode="aspectFill"></image>
+</view>

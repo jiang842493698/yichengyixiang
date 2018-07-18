@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+   <view  bindtap="bindViewTap" class="userinfo">
+     <view>
+      <image class="userinfo-avatar" src="{{userInfo.headicon}}" background-size="cover"></image> 
+    </view> 
+    <view class="username">
+      <view class="userinfo-nickname">
+        <text>{{userInfo.name}}</text>  
+        <!-- <image src="../../images/Vip1.png" class='vip'></image> -->
+      </view>
+      <view class="userinfo-desc">我的积分: {{total==null?0:total}} 分</view>
+    </view>
+  </view> 
+  <view class="linestyle"></view>
+  <view>
+    <view wx:if="{{list.length>0}}">
+      <block wx:for="{{list}}"  wx:for-index="index">
+        <view bindtap='active_page' data-name="{{item.text}}" class="weui_cell">
+          <!-- <view class="weui_cell_hd"><image src="{{item.headicon}}"></image></view> -->
+          <view class="weui_cell_bd">
+              <view class="weui_cell_bd_p">{{index+1}}，{{item.name}} </view>
+          </view>
+           <view class="weui_cell_bd" style='font-size:12px' >{{item.createAt}}</view>
+          <view class="badge">{{item.integral}}分</view>
+          <!-- <view class="with_arrow"></view> -->
+          
+        </view>
+      </block>
+    </view>
+    <view class='nodata' wx:else>
+        <view class='kongOrder'>
+          <view class='kongOrder_image'>
+            <image mode="aspectFit" src='/images/icon.png'></image>
+          </view>
+          <view class='kongOrder_text'>目前您还没有任何积分哦，赶紧去下单吧</view>
+          <view class='kongOrder_button' bindtap='nav_append'>
+            去下单
+          </view> 
+        </view>
+      </view>
+    
+  </view>
+</view>

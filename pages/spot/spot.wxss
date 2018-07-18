@@ -1,0 +1,116 @@
+/* pages/spot.wxss */
+ 
+/* .ar_coverpath{
+    width:100%;
+    box-sizing:border-box;
+}
+.ar_coverpath image{
+    width:100%;
+    height:390rpx;
+} */
+
+.contrainer1{
+   
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  box-sizing:border-box;
+  font-family:'微软雅黑';
+
+}
+.c-item{
+    /* height: 100%;
+    width:100%; */
+    background-color:beige;
+    display:flex;
+}
+
+
+.item1{
+    height:183rpx;
+    width:183rpx;  
+    border: 1px solid #fff
+}
+.item-price{
+  text-align: center;
+  color: firebrick;
+  font-size: 11px;
+}
+
+ .spot{
+  margin-bottom: 26rpx;
+   margin-top:-26rpx; 
+
+} 
+
+  .spotimg{
+  width: 100%;
+  height:330rpx
+}  
+
+
+.spot-title-img{
+   height:330rpx; 
+   width:100%;
+}
+
+.spot-title-con{
+   /* height:183rpx; */
+  width:92%;
+  padding:8rpx;
+  padding-top:20rpx;
+  padding-left:4%;
+}
+
+.section_image{
+    width:100%;
+    height: 328rpx;
+    margin-top:25rpx; 
+}
+ .section_image image{
+    width:100%;
+    height:100%;
+}
+
+.spot-name{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.search-keyword-title {
+    padding-left: 20rpx;
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
+    font-size: 30rpx;
+    border-left: 10rpx solid #349af0;
+    margin-left:20rpx;
+}
+
+.spot_b{
+  padding-top: 22rpx;
+  width: 100%;
+  display:flex;
+  border-bottom:20rpx solid #efefef;
+  padding-bottom:30rpx;
+
+}
+
+.spot_b_item{
+  width: 180rpx;
+  font-size:28rpx;
+  color:#999;
+  text-align: center
+
+}
+
+
+.ar_coverpath{
+    width:100%;
+    margin:0;
+    box-sizing:border-box;
+}
+.ar_coverpath image{
+    width:100%;
+    height:390rpx;
+}

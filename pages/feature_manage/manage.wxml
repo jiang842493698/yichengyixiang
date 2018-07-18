@@ -1,0 +1,64 @@
+<!--technician.wxml-->
+
+<view class="container">
+<scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
+  
+  <!--list-->
+  <view class="nav_section">
+      <view  wx:if="{{items.length>0}}">
+          <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="">
+            <view class="content">
+              <view class="nav_section_items" bindtap='bianji' data-id='{{item.id}}' >
+              <view class="section_image" >
+
+              <block wx:if="{{item.goodimg}}">
+                  <image src="{{item.goodimg}}!trainvipimg" mode="aspectFill"></image>
+              </block>
+              <block wx:else>
+                  <image src="../../images/default_pic.png" mode="aspectFill"></image>
+              </block>
+              </view>
+              <!--content-->
+              <view class="section_cont" >
+                  <view class="section_cont_sub">
+                      <text>{{item.name}}</text>
+                  </view>
+                  <view class="section_cont_price" style="color:#000">{{item.nickname}}<text class="section_cont_price">￥{{item.price}}</text><text class='qi'></text></view>
+                  <view>{{item.description}}</view>
+              </view>
+              <view class='deletechangdi'>
+              
+              </view>
+              </view>
+            </view>
+            <!-- <view class="del" bindtap='deletechangdi' data-id="{{item.id}}" data-index="{{index}}">编辑</view> -->
+            <view class="del" bindtap='deletechangdi' data-id="{{item.id}}" data-index="{{index}}">删除</view>
+          </view>
+        
+      </view>
+      
+      
+ 
+
+      <view class='nodate' wx:else>
+        <view class='kongOrder'>
+          <view class='kongOrder_image'>
+            <image mode="aspectFit" src='/images/icon.png'></image>
+          </view>
+          <view class='kongOrder_text'>目前您还没有添加场地哦，赶紧去添加场地吧</view>
+          <view class='kongOrder_button' bindtap='nav_append'>
+            添加场地
+          </view> 
+        </view>
+      </view>
+            
+  </view>
+  <view class='kongge'>
+  
+  </view>
+</scroll-view>
+ 
+    
+</view> 
+
+<view class='myadd' bindtap="nav_append">发布场地</view>

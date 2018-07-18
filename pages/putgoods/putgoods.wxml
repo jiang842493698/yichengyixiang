@@ -1,0 +1,57 @@
+
+<view class="container">
+    <view class="ar_cont">
+       <form bindsubmit="evaSubmit">
+
+         <text class="search-keyword-title">场地名称</text>
+          <input class="ar_date" name="evaname" placeholder-style="color:#999;font-size:28rpx;" type="text" value='{{list.name}}' /> 
+         <text class="search-keyword-title">场地价格</text>
+          <input class="ar_date" name="evaprice" placeholder-style="color:#999;font-size:28rpx;" type="text" value='{{list.price}}' /> 
+          <text class="search-keyword-title">场地库存</text>
+          <input class="ar_date" name="evastock" placeholder-style="color:#999;font-size:28rpx;" type="text" value='{{list.stock}}' /> 
+
+      <view class=''>
+        <text class="search-keyword-title">场地描述</text>
+
+    <view class='duohangwenben'>
+    <textarea class='duohangwenbens' style='margin:20rpx;height:250rpx;' name="evaContent" maxlength="500" value="{{evaContent}}" class="weui-textarea"  placeholder="{{list.description}}" bindblur="charChange" /> 
+       <view class="ar_date_time">
+           <view class="wayne-temper-img fl" id="wx_img" wx:if="{{urls.length<=3}}" >
+            
+            <view bindtap='bindChooiceProduct' class="wayne-temper-add" id="temper-add" style="margin-top: 5px;" onclick="TEMPER.chooseImage('')">
+
+                <view class='text1'  style="color: #d8d8d9;">
+                    +
+                </view>
+            </view>
+          </view> 
+          <!-- <view wx:for="{{urls}}"> -->
+              <!-- <view class='guanbi' bindtap='guanbi' data-id='{{index}}'>
+                x
+              </view> -->
+              <image src='{{urls}}' bindtap='bindChooiceProduct' mode="aspectFill" class="item1"></image>
+          <!-- </view> -->
+        </view>   
+    </view> 
+      </view>
+
+        
+      
+   
+
+<!-- <view class="search-keyword">
+        <view class="search-keyword-title">标签选择</view>
+        <view wx:for="{{hotTag}}" class="search-keyword-item {{item.isSelect?'huise':''}}" data-keyword="{{item.name}}" bindtap="searchByTag" data-id='{{item.id}}'>{{item.name}}</view>        
+    </view> -->
+    <view class='kongge'>
+    
+    </view>
+
+    <button class="ar_book" formType="submit" disabled="{{subdisabled}}" >确认修改</button>
+ </form>
+
+       
+       
+    </view>
+
+</view>

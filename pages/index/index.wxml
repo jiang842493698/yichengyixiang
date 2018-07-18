@@ -1,0 +1,91 @@
+ 
+<!--<loading hidden="{{!loading}}">
+	{{title}}
+</loading>-->
+<view class="container">
+<scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
+  <!--banner-->
+  <view class="swiper">
+      <swiper indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#3688C9" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+              autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for-items="{{banner_url}}" wx:key="item.id">
+              <swiper-item data-eventid='{{item.id}}' bindtap="navToEvent">
+                <block wx:if="{{item.icon}}">
+                  <image src="{{item.icon}}"  mode="aspectFill"/>
+                </block>
+                <block wx:else>
+                  <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                </block>
+              </swiper-item>
+          </block>
+      </swiper>
+  </view>
+    <!-- <view class="search-bar">
+        <input class="search-txt" placeholder-class="search-txt-plc" bindinput="viewSearch" placeholder="请输入关键词搜索" type="text"/>
+   </view> -->
+  <!--nav-->
+  <view class='aaa'>
+    <view class="nav_top" >
+      <block wx:for="{{navTopItems}}" wx:key="item.id">
+        <view class="nav_top_items {{curNavId == item.id ? 'active_'+colors[index] : ''}}" data-index="{{index}}" bindtap='navTosearch' data-title='{{item.title}}' data-id="{{item.id}}">
+          <image src="{{item.icon}}" mode="aspectFill"></image>
+          <text>{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  
+  <!-- <view bindtap='navToEvent' class="ar_coverpath">
+    <image src="../../images/yh.jpg"  style='height:5rem'  mode="aspectFill"></image>
+  </view> -->
+  <view bindtap='navToApply' class="ar_coverpath">
+    <image src="http://antownimg.b0.upaiyun.com/mer/images/go.png"  style='height:5rem'  mode="aspectFill"></image>
+  </view>
+  <!--list-->
+  <view class="nav_section">
+      <view  class="search-keyword-title">
+          场地 推荐
+      </view>
+      <view wx:if="{{list}}" class='film'>
+      
+        <block wx:for="{{list}}" wx:key="item.id">
+            <view class="nav_section_items film-item" bindtap="navigateDetail" data-id="{{item.id}}" data-name="{{item.name}}" data-description="{{item.description}}" data-type='{{item.type}}' data-price='{{item.price}}'  data-img="{{item.img}}">
+                <!--image-->
+                <view class="section_image" >
+
+                <block wx:if="{{item.img}}">
+                    <image src="{{item.img}}!mergoods" mode="aspectFill"></image>
+                </block>
+                <block wx:else>
+                    <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                </block>
+                </view>
+                <!--content-->
+                <view class="section_cont" >
+                    <view class="section_cont_sub">
+                        <view>{{item.name}}</view>
+                        <view class="section_cont_price"><text class='fuhao'>￥</text>{{item.pp}}<text class='text'>起</text></view>
+                    </view>
+                </view>
+                <!--book-->
+                <!-- <view class='ar_sevice_item'>
+                  <view class="section_book" >
+                      <view>预定</view>   
+                  </view>
+                </view> -->
+            </view>
+        </block>
+      </view>    
+      <!-- <view class="search-keyword">
+          <view class="search-keyword-title" style='margin-left:0'>热门标签</view>
+          <view wx:for="{{hotTag}}" class="search-keyword-item" data-keyword="{{item.name}}" bindtap="shao">{{item.name}}</view>        
+      </view> -->
+    <!-- <view wx:else>暂无数据</view> -->
+  <!-- <view bindtap='navToApply' class="ar_coverpath">
+    <image src="../../images/go.png"  style='height:5rem'  mode="aspectFill"></image>
+  </view> -->
+      </view>
+</scroll-view>
+</view>
+ <!-- <reject-invite wx:if="{{reject_invite.isShow}}" bindcancel="reject_inviteCancel"
+    bindconfirm="reject_inviteConfirm" bind></reject-invite>  -->

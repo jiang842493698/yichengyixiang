@@ -1,0 +1,11 @@
+<view>
+  <view class='selectSpot'>
+    <view class='selectSpot_text'>请选择景区</view>
+  </view>
+  <view>
+    <view>
+      <view class='jingqu' wx:for='{{list}}' bindtap='onSelect' data-id='{{item.id}}' data-spotid='{{item.spotid}}'>{{item.spotname}}</view>
+    </view>
+  </view>
+
+</view>

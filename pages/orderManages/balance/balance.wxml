@@ -1,0 +1,83 @@
+<!--pages/orderManages/balance/balance.wxml-->
+<view>
+  <view class='bodys'>
+    <view class='userinfo'>
+      <view class='iconhead'>
+        <image style='width:100rpx;height:100rpx;' mode="aspectFit" src='{{payData.headicon}}' ></image>
+      </view>
+      <view class='name'>
+        <view>
+        {{payData.name}}
+        </view>
+      </view>
+    </view>
+    <view class='orderinfo'>
+      <view class='orderid'>
+          订单号 ：{{payData.out_trade_no}}
+      </view>
+      
+      <view class='ordernameandcount' wx:for="{{payData.orderdata}}">
+        <view class='ordername'>{{item.name}}</view>
+         <view class='price'>{{item.price}}元</view> 
+        <view class='count'>x{{item.count}}</view>
+      </view>
+     
+
+    </view>
+    
+      <view class='dinjin'>
+        总金额 :
+        <view class='prices'>
+         ￥{{payData.allprice/100}}
+        </view>
+      </view>
+      <view class='dinjin'>
+        定金 ： 
+        <view class='prices'>
+        ￥{{payData.money/100}}
+        </view>
+      </view>
+      
+    
+    <view class='dinjin'>
+      需支付：
+      <view class='prices zhifu'>
+      <input class='zhifuinput' bindinput='daizhifu' placeholder="{{payData.daizhifu/100}}"></input>
+      </view>
+    </view>
+    <view class='dinjin beizhu'>
+      <view class='beizhu_title'>备注：</view>
+      
+        <textarea style='float:right;margin-top:-97rpx;height:250rpx;' bindinput="textbeizhu" class='beizhutextarea' placeholder="请输入备注">
+        
+        </textarea>
+      
+    </view>
+      <view class='dinjin'>
+        购买日期 :
+        <view class='prices'>
+         {{payData.createAt}}
+        </view>
+      </view>
+    
+     <view class="search-bottom" style='text-align:right'>
+        <view class='f3'>
+          
+         
+        </view>
+       
+        <view class='f1'>
+          <view class='jiesuan'  bindtap="toBalance">结算</view>
+          </view>
+          <view class='f1'>
+            <!-- <text class='bstat'>合计：￥{{all}}</text> -->
+          </view>
+      </view>
+      
+    
+  </view>
+</view>
+
+<view class='mask' hidden='{{maskFlag}}'>
+  <image style='width:230rpx;height:230rpx' src="http://antownimg.b0.upaiyun.com/mer/timg.gif" mode="aspectFill"></image>
+</view>

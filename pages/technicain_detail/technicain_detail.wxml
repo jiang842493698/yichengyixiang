@@ -1,0 +1,71 @@
+<view class="container">
+<view class="ar_coverpath">
+    <image src="{{img}}!mergoodsimg" mode="aspectFill"></image>
+
+
+ <view class='titleinfo'>
+    <view class="title">
+      当天可定 {{title}}
+    </view>
+    <view class="price">
+     ￥100~200
+    </view> 
+     <view class="volume">
+     月售1,222笔
+    </view>
+    </view>
+    <view  class='chupiao'>
+      <view class='chuimg'>
+  
+      </view>
+      <view class='chufont'>
+        平均4分钟出票
+      </view>
+    </view>
+  <view class="ar_cont chupiao">
+    
+    <text>{{description}}
+    </text>
+    <!-- <text>促销信息
+    </text>
+      <text>地址信息
+    </text>
+     <text>地图位置（连接e游）
+    </text>
+
+
+    <text>用户评价
+    </text>
+    <text>图文详情
+    </text>
+    <text>相似推荐
+    </text>
+    <view class="section">  
+      <picker mode="date" value="{{date}}" start="1978-01-01" end="2017-1-23" bindchange="bindDateChange">  
+        <view class="picker">  
+          日期: {{dates}}  
+        </view>  
+    </picker>  
+   </view>   -->
+    <view class="ar_cont_h2">
+    
+    </view>
+    <view wx:for="{{list}}" class='spot'>
+      <view class="ar_sevice_item" style="border-top:1px solid #ddd;">
+          <text class="ar_cont_subject">{{item.name}}</text>
+          <text class="ar_cont_price">{{item.price}}元 </text> 
+          <view class="section_book" bindtap="bookTap" data-img="{{item.goodimg}}" data-price="{{item.price}}"  data-id="{{item.id}}" data-name="{{item.name}}">
+              <text>预定</text>
+          </view>
+      </view>
+    </view>
+    <!-- <view>　</view>
+      <view class="search-bottom" >
+        <button type="warn" size="mini" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}"  bindtap="toBuyCard"> 加入购物车 </button> 
+        <button type="primary" style='margin-left:8rpx' size="mini" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="toBalance">立即购买</button>
+    </view> -->
+</view>
+</view>
+</view>

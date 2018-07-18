@@ -1,0 +1,19 @@
+/* pages/activeManage/scenicSelect/scenicSelect.wxss */
+.selectSpot{
+  height:100rpx;
+  width:100%;
+  background-color:#eee;
+  line-height:100rpx;
+  font-size:34rpx;
+}
+.selectSpot_text{
+  padding-left: 20rpx;
+}
+.jingqu{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #eee;
+  padding-left: 20rpx;
+  font-size: 32rpx
+}

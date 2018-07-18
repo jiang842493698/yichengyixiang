@@ -1,0 +1,48 @@
+<!--detail.wxml-->
+<view class="container pad">
+  <view class="topic-detail">
+    <view>
+       <image src="{{detail.icon}}"  style='height:445rpx;width:100%;'  mode="aspectFill"></image>
+    </view>
+    
+    <view class="topic-owner" style='text-align:center'>
+        <view class="topic-tit">{{detail.title}}</view>
+    </view>
+    <view class='content'>
+ 
+       <view class='textcontent' wx:for="{{content}}" >
+        {{item}}       
+      </view>  
+   
+      <div class='textcontent'>
+      
+      </div>
+    </view>
+    
+    
+    <view class='xiangqing'>
+      <view class='biaoti'>活动时间</view>
+      <view class='value'>{{activeDate.startTime}}</view>
+      <view class='value'>{{activeDate.endTime}}</view>
+      <view class='value'>{{activeDate.content}}</view>
+    </view>
+
+    <view class='xiangqing'>
+      <view class='biaoti'>活动费用</view>
+      <view wx:for="{{data}}">
+        <view class='value'><text class='priceColor'>{{item.activePrice}}元 </text><text>{{item.activeType}}</text></view>
+      </view>
+    </view>
+    <view class='xiangqing'>
+      <view class='biaoti'>活动详情</view>
+      <view wx:for="{{eventInfo}}">
+      <view class='value info'>{{item.key}}:{{item.value}}</view>
+      </view>
+      <view class="kongge"></view>
+    </view>
+    <!-- <view class="topic-info" style='text-align:right'>
+        <text>{{detail.tags}}</text>
+        <text class="topic-created">{{detail.createAt}}</text>
+    </view> -->
+  </view>
+</view>

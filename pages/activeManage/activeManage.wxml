@@ -1,0 +1,24 @@
+<!--pages/activeManage/activeManage.wxml-->
+<view>
+    <view>
+      <view class='active' wx:for="{{activeData}}" bindtap='selectActive' data-type='{{item.type}}'>
+      <view class='setActive'>
+        <view class='setActive_view'><image class='setActive_image' mode="aspectFit" src='{{item.icon}}'></image></view>
+        <view class='activeType'>{{item.name}}</view>
+        <view class="with_arrow"></view>
+      </view>
+    </view>
+    <!-- <view class='active'>
+      <view class='setActive'>
+        <view class='activeType'>满减活动</view>
+      </view>
+    </view>
+    <view class='active'>
+      <view class='setActive'>
+        <view class='activeType'>立减活动</view>
+      </view>
+    </view> -->
+  </view>
+  
+
+</view>

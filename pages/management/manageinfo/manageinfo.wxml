@@ -1,0 +1,22 @@
+<!--pages/management/manageinfo/manageinfo.wxml-->
+<!-- <text>pages/management/manageinfo/manageinfo.wxml</text> -->
+<view>
+  <view>
+    <view class='title'>
+      <view class='title_name'>{{name}}</view>
+      <view class='title_price'>￥{{price}}</view>
+    </view>
+    <view>
+      <view class='content'>
+        <view class='content_info' wx:for="{{list}}">
+          <view class='content_info_name'>{{item.name}}</view>
+          <view class='content_info_right'>
+            <view class='content_info_date'>{{item.dateTime}}</view>
+            <view class='content_info_price'>￥{{item.money/100}}</view>
+          </view>
+          
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

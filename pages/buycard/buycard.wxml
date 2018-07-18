@@ -1,0 +1,63 @@
+<view class="container">
+    <scroll-view  scroll-y="true"  class="page-body mg-30" bindscrolltolower="loadMore">
+      <!--list-->
+      <view class="nav_section">
+        <view wx:if="{{list}}">
+            <block wx:for="{{list}}" wx:key="item.id">
+                <view class="nav_section_items" bindlongtap="navigateDetail" data-id="{{item.id}}" data-name="{{item.name}}" data-description="{{item.description}}"  data-img="{{item.img}}">
+                    <view class='section_chk' bindtap='onSelect' data-id='{{item.id}}'> 
+                      <checkbox  value="key1" size="mini" checked="{{item.status==1}}"/> 
+                    </view> 
+                    <!--image-->
+                    <view class="section_image" >
+                      <block wx:if="{{item.goodimg}}">
+                          <image src="{{item.goodimg}}!trainvipimg" mode="aspectFill"></image>
+                      </block>
+                      <block wx:else>
+                          <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                      </block>
+                    </view>
+                    <view class='section_right'>
+                     <view class="section_cont" >
+                        <view class="section_cont_sub">
+                            <text>{{item.name}}</text>
+                        </view>
+                        <view class="section_cont_price" style="color:#000">{{item.nickname}}<text class="section_cont_price">{{item.price}}元</text></view>
+                        <!-- <view>{{item.description}}</view> -->
+                    </view>
+                    
+                      <view class="stepper">
+                        <!-- 减号 -->
+                        <text class="{{item.count==1?'disabled':''}}" bindtap="bindMinus" data-id='{{item.id}}' data-count='{{item.count}}'>-</text>
+                        <!-- 数值 -->
+                        <input type="number" name="{{item.id}}" bindchange="bindManual" value="{{item.count}}" />
+                        <!-- 加号 -->
+                        <text class="normal" bindtap="bindPlus" data-id='{{item.id}}' data-count='{{item.count}}'>+</text>
+                      </view>
+                    </view>
+                   
+                      
+                </view>
+            </block>
+        </view>
+        <view wx:else>暂无数据</view>     
+    </view>
+     </scroll-view>
+
+      <view class="search-bottom" style='text-align:right'>
+        <view class='f3'>
+          <view class='section_ch' bindtap='onAllSelect' > 
+            <checkbox  value="key1" size="mini" checked="{{onAllSelect}}"/> 
+           
+          </view> 
+          <text class='bstat'>合计：<text class='heji'>￥{{all}}</text></text>
+        </view>
+       
+        <view class='f1'>
+          <view class='jiesuan'  bindtap="toBalance">结算</view>
+          </view>
+          <view class='f1'>
+            <!-- <text class='bstat'>合计：￥{{all}}</text> -->
+          </view>
+      </view>
+  </view>

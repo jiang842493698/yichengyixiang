@@ -1,0 +1,165 @@
+<view class="container">
+    <view class="ar_cont">
+       <form report-submit="true" bindsubmit="evaSubmit"  >
+        <text class="search-keyword-title">{{type}}名称</text>
+        <view class="section">
+             <input class="ar_date" name="name" placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder="请输入{{type}}名称" />
+        </view>
+        <!-- <view wx:if="{{type=='场地'}}">
+           <view>场地类型</view>
+          <view wx:for="{{}}">
+            
+          </view> 
+        </view> -->
+       
+        <text class="search-keyword-title">{{type=="场地"?"场地价格":"景区地址"}}</text>
+         <view class='section' wx:if="{{type=='景区'}}">
+          <view class="ar_date" bindtap='selectAddress'>
+          <view>{{original_name}}</view>
+         </view> 
+        </view>
+        <view wx:else>
+          <view class="section">
+              <input class="ar_date" name="address" bindblur='onPrice'  placeholder-style="color:#999;font-size:28rpx;" type="digit" placeholder='{{type=="场地"?"请输入场地价格":"请输入景区地址"}}' />
+          </view>
+        </view>
+         
+         <text class="search-keyword-title" wx:if="{{type=='景区'}}">{{"景区详细地址"}}</text>
+        <view class='section' wx:if="{{type=='景区'}}">
+           <input class="ar_date" name="addressInfo"  placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder='如：门牌号' />  
+          <!-- <view class="ar_date" bindtap='selectAddress'>
+            <view>{{original_name}}</view>
+          </view>  -->
+        </view>
+
+         <text class="search-keyword-title" wx:if="{{type=='景区'}}">{{"景区联系人"}}</text>
+        <view class='section' wx:if="{{type=='景区'}}">
+           <input class="ar_date" name="mobile_people"  placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder='景区联系人' />  
+          
+        </view>
+        <text class="search-keyword-title" wx:if="{{type=='景区'}}">{{"景区联系电话"}}</text>
+        <view class='section' wx:if="{{type=='景区'}}">
+           <input class="ar_date" name="mobile_phone"  placeholder-style="color:#999;font-size:28rpx;" type="number" placeholder='手机号码' />  
+          
+        </view>
+        <!-- <text bindtap='bindChooiceProduct' class="search-keyword-title">图片选择</text>
+        <view class="ar_date_time">
+        <view wx:for="{{urls}}">
+            <image src='{{item}}' mode="aspectFill" class="item1"></image>
+        </view>
+        </view> -->
+      <view class='search-keyword'>
+        <text class="search-keyword-title info">{{type=="场地"?"场地介绍说明":"申请入驻说明"}}</text>
+
+    <view class='duohangwenben'>
+    <!-- <input class='duohangwenbens' style='margin:20rpx;height:250rpx;'></input> -->
+    <view wx:if="{{isAddress==true}}">
+            <textarea class='duohangwenbens' style='margin:20rpx;height:250rpx;' name="evaContent" maxlength="500" value="{{evaContent}}" class="weui-textarea"  placeholder="填写内容(12-500字)" bindblur="charChange" />  
+    </view>
+     
+     <view class="ar_date_time">
+           <view class="wayne-temper-img fl" id="wx_img"  > 
+            
+            <!-- <view bindtap='bindChooiceProduct' class="wayne-temper-add" id="temper-add" style="margin-top: 5px;" onclick="TEMPER.chooseImage('')">
+
+                <view class='text1'  style="color: #d8d8d9;">
+                    +
+                </view>
+            </view>
+          </view> -->
+          <view class='urls'>
+
+             <view bindtap='bindChooiceProduct' class="wayne-temper-add" id="temper-add" style="margin-top: 5px;" onclick="TEMPER.chooseImage('')">
+
+                <view class='text1'  style="color: #d8d8d9;">
+                    +
+                </view>
+            </view>
+          </view> 
+            <view  wx:for="{{urls}}">
+              
+              <image src='{{item}}'  mode="aspectFill" class="item1 {{urls.length>3?'':'items'}}">
+                <view class='guanbi' bindtap='guanbi' data-id='{{index}}'>
+                  x
+                </view>
+              </image>
+            </view>
+          </view>
+          <!-- <view wx:for="{{urls}}">
+              <view class='guanbi' bindtap='guanbi' data-id='{{index}}'>
+                x
+              </view>
+              <image src='{{item}}' mode="aspectFill" class="item1"></image>
+          </view> -->
+        </view>  
+    </view>
+     </view> 
+      
+      
+   
+
+    <view class="search-keyword">
+        <view class="search-keyword-title">标签选择</view>
+        <view wx:for="{{hotTag}}" class="search-keyword-item {{item.isSelect?'huise':''}}" data-keyword="{{item.name}}" bindtap="searchByTag" name="hotTag" data-id='{{item.id}}'>{{item.name}}</view>        
+    </view>
+
+    <button class="ar_book" hidden='{{!isAddress}}' report-submit='true' formType="submit" disabled="{{subdisabled}}" bindtap="bindToastTap">{{type=="场地"?"确认发布":"确认申请"}}</button>
+ </form>
+
+       
+        <!-- <toast hidden="{{bookToastHidden}}"  bindchange="hideToast">
+        提交成功
+        </toast> -->
+    </view>
+
+</view>
+<view class='selectAddress'   hidden='{{isAddress}}'>
+  <view>
+    <view class="addressNavigation">
+
+      <view class='return' bindtap='fanhui'>
+        返回
+      </view>
+      <text class='area'>地区</text>
+    </view>
+    <view>
+      
+      
+        <view wx:if="{{town_name&&level==5}}">
+          <view class='province'><view>街道</view></view>
+          <view class='address' wx:for="{{prov_nameArray}}">
+            <view class='content' bindtap='isvillage' data-village='{{item.village_name}}'>{{item.village_name}}</view>
+          </view>
+        </view>
+        <view wx:if="{{county_name&&level==4}}">
+           <view class='province'><view>镇/村</view></view>
+          <view class='address' wx:for="{{prov_nameArray}}">
+            <view class='content' bindtap='istown' data-town='{{item.town_name}}'>{{item.town_name}}</view>
+          </view>
+        </view>
+        <view wx:if="{{city_name&&level==3}}">
+          <view class='province'><view>区/县</view></view>
+          <view class='address' wx:for="{{prov_nameArray}}">
+            <view class='content' bindtap='iscounty' data-county='{{item.county_name}}'>{{item.county_name}}</view>
+          </view>
+          
+        </view>
+        <view wx:if="{{prov_name&&level==2}}">
+          <view class='province'><view>市</view></view>
+          <view class='address' wx:for="{{prov_nameArray}}">
+            <view class='content' bindtap='iscity' data-city='{{item.city_name}}'>{{item.city_name}}</view>
+          </view> 
+        </view>
+        <view wx:if="{{level==1}}">
+          <view class='province'><view>省/直辖</view></view>
+          <view class='address' wx:for="{{prov_nameArray}}">
+            <view class='content' bindtap='isprov' data-prov='{{item.prov_name}}'>{{item.prov_name}}</view>
+          </view>
+          
+        </view>
+      
+     
+      
+    </view>
+  </view>
+</view>

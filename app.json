@@ -1,0 +1,106 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/book/book",
+    "pages/technician/technician",
+    "pages/technicain_detail/technicain_detail",
+    "pages/edit_addr/edit_addr",
+    "pages/user/index",
+    "pages/spot/spot",
+    "pages/feature/feature",
+    "pages/search/search",
+    "pages/market/market",
+    "pages/buycard/buycard",
+    "pages/balance/balance",
+    "pages/node_detail/detail",
+    "pages/feature_manage/manage",
+    "pages/feature_append/append",
+    "pages/spot_apply/apply",
+    "pages/event/event",
+    "pages/user_order/order",
+    "pages/user_point/point",
+    "pages/user_tel/tel",
+    "pages/userverify/userverify",
+    "pages/market_manage/manage",
+    "pages/registration/login",
+    "pages/myorder/myorder",
+    "pages/technicain_hotel/technicain_hotel",
+    "pages/technicain_ticket/technicain_ticket",
+    "pages/integral/integral",
+    "pages/technicain_ticket_buy/ticket_buy",
+    "pages/technicain_event/technicain_event",
+    "pages/technicain_diet/technicain_dite",
+    "pages/searchs/search",
+    "pages/management/management",
+    "pages/management/manageinfo/manageinfo",
+    "pages/Review/Review",
+    "pages/myInformation/myInformation",
+    "pages/wxlogin/index",
+    "pages/orderManages/orderManages",
+    "pages/system/system",
+    "pages/deposit/deposit",
+    "pages/spotmanager/spotmanager",
+    "pages/goods_manage/manage",
+    "pages/management/manage_set/index",
+    "pages/certificationApply/certificationApply",
+    "pages/demandManage/demandManage",
+    "pages/activeManage/activeManage",
+    "pages/activeManage/scenicManage/scenicManage",
+    "pages/activeManage/scenicSelect/scenicSelect",
+    "pages/envelope/envelope",
+    "pages/activeManage/displayActivity/displayActivity",
+    "pages/spotmanager/users/users",
+    "pages/spotmanager/append/append",
+    "pages/balances/balances",
+    "pages/goods/goods",
+    "pages/myspot/myspot",
+    "pages/putgoods/putgoods",
+    "pages/orderManages/balance/balance",
+    "pages/goods/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#37383c",
+    "navigationBarTitleText": "e游-供应商主页",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#333",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index_icon.png",
+        "selectedIconPath": "images/index_icon_HL.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "场地",
+        "iconPath": "images/skill_icon.png",
+        "selectedIconPath": "images/skill_icon_HL.png"
+      },
+      {
+        "pagePath": "pages/spot/spot",
+        "text": "景区",
+        "iconPath": "images/spot_icon.png",
+        "selectedIconPath": "images/spot_icon_HL.png"
+      },
+      {
+        "pagePath": "pages/buycard/buycard",
+        "text": "购物车",
+        "iconPath": "images/shoppingCart.png",
+        "selectedIconPath": "images/shoppingCartSelected.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "images/user_icon.png",
+        "selectedIconPath": "images/user_icon_HL.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,175 @@
+<!-- <view class="container">
+   
+
+    <view class="ar_cont">
+       <form bindsubmit="evaSubmit">
+        <text class="search-keyword-title">需求时间</text>
+        <view class="ar_date_time">
+            <view class="ar_date">
+                <image src="../../images/date.png"></image>
+                <picker mode="date" placeholder="选择日期" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" >
+                    <view>
+                        {{date}}
+                    </view>
+                </picker>
+            </view>
+            <view class="ar_time">
+                <image src="../../images/time.png"></image>
+                <picker mode="time" placeholder="选择时间" value="{{time}}" start="01:00" end="24:00" bindchange="bindTimeChange">
+                    <view>
+                        {{time}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+
+        <text class="search-keyword-title">需求内容</text>
+
+          
+        <textarea style='border:1px solid #cdcdcd;border-radius:3px;padding:15rpx' name="evaContent" maxlength="500" value="{{evaContent}}" class="weui-textarea" placeholder="填写内容(12-500字)" bindblur="textBlur" />     
+
+        <view class="search-keyword">
+                <view class="search-keyword-title">标签选择</view>
+              <view wx:for="{{hotTag}}" class="search-keyword-item" data-keyword="{{item.name}}" bindtap="searchByTag">{{item.name}}</view>        
+          </view>
+
+          <button class="ar_book" formType="submit" disabled="{{subdisabled}}" bindtap="bindToastTap">确认发布</button>
+      </form>
+        <toast hidden="{{bookToastHidden}}"  bindchange="hideToast">
+        发布成功
+        </toast>
+    </view>
+
+</view> -->
+<view class="container">
+   
+     
+   
+ 
+    <view class="ar_cont">
+       <form bindsubmit="evaSubmit">
+
+         <text class="search-keyword-title">活动时长</text>
+        <view class="section">
+             <!-- <input class="ar_date" placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder="请输入{{type}}名称" /> -->
+             <view class='timeActivity jiange {{id==1?"isSelect":""}}' bindtap='isActivity' data-id='1'>上午</view>
+             <view class='timeActivity {{id==2?"isSelect":""}}' bindtap='isActivity' data-id='2'>下午</view>
+             
+        </view> 
+        <view class="section times">
+           
+             <view class='timeActivity jiange  {{id==3?"isSelect":""}}' bindtap='isActivity' data-id='3'>全天</view>
+              <view class='timeActivity {{id==4?"isSelect":""}}' bindtap='isActivity' data-id='4'>自定义</view> 
+             
+        </view> 
+          <view wx:if="{{isStartTime}}">
+            <text class="search-keyword-title">开始时间</text>
+            <view class="section">
+              <view class='timesActivity'>
+                <picker style='width : 100%;' mode="date" placeholder="选择日期" value="{{date}}" start="{{startDateTime}}"  bindchange="bindStartChange" >
+                  <view>
+                      {{startDateTime}}
+                  </view>
+                  <view class='xiala'>
+                    <i class="iconfont icon-xiala"></i>
+                  </view>  
+                </picker>
+                
+              </view> 
+              
+                <!-- <input class="ar_date" placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder='{{type=="场地"?"请输入场地价格":"请输入景区地址"}}' /> -->
+            </view>   
+            <view class="section">
+                <!-- <input class="ar_date" placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder="请输入{{type}}名称" /> -->
+                <view class='timeActivity jiange {{startTimeId==1?"isSelect":""}}' bindtap='isStartActivity' data-id='1'>上午</view>
+                <view class='timeActivity {{startTimeId==2?"isSelect":""}}' bindtap='isStartActivity' data-id='2'>下午</view>
+                
+            </view> 
+            <text class="search-keyword-title">结束时间</text>
+            <view class="section">
+              <view class='timesActivity'>
+                <picker style='width : 100%;' mode="date" placeholder="选择日期" value="{{date}}" start="{{endDateTime}}"  bindchange="bindEndChange" >
+                  <view>
+                      {{endDateTime}}
+                  </view>
+                  <view class='xiala'>
+                    <i class="iconfont icon-xiala"></i>
+                  </view>  
+                </picker>
+                
+              </view> 
+                <!-- <input class="ar_date" placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder='{{type=="场地"?"请输入场地价格":"请输入景区地址"}}' /> -->
+            </view>   
+            <view class="section">
+                <!-- <input class="ar_date" placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder="请输入{{type}}名称" /> -->
+                <view class='timeActivity jiange {{endTimeId==1?"isSelect":""}}' bindtap='isEndActivity' data-id='1'>上午</view>
+                <view class='timeActivity {{endTimeId==2?"isSelect":""}}' bindtap='isEndActivity' data-id='2'>下午</view>
+                
+            </view> 
+          </view>
+          <view wx:if="{{!isStartTime}}">
+            <text class="search-keyword-title">活动时间</text>
+            <view class="section">
+              <view class='timesActivity'>
+                <picker style='width : 100%;' mode="date" placeholder="选择日期" value="{{date}}" start="{{date}}"  bindchange="bindDateChange" >
+                  <view>
+                      {{date}}
+                  </view>
+                  <view class='xiala'>
+                    <i class="iconfont icon-xiala"></i>
+                  </view>  
+                </picker>
+              </view> 
+                <!-- <input class="ar_date" placeholder-style="color:#999;font-size:28rpx;" type="text" placeholder='{{type=="场地"?"请输入场地价格":"请输入景区地址"}}' /> -->
+            </view>  
+          </view> 
+          
+          
+
+      <view class=''>
+        <text class="search-keyword-title">活动需求描述</text>
+
+    <view class='duohangwenben'>
+    <textarea class='duohangwenbens' style='margin:20rpx;height:250rpx;' name="evaContent" maxlength="500" value="{{evaContent}}" class="weui-textarea"  placeholder="填写内容(12-500字)" bindblur="charChange" /> 
+      <!-- <view class="ar_date_time">
+          <view class="wayne-temper-img fl" id="wx_img" wx:if="{{urls.length<=3}}" >
+            
+            <view bindtap='bindChooiceProduct' class="wayne-temper-add" id="temper-add" style="margin-top: 5px;" onclick="TEMPER.chooseImage('')">
+
+                <view class='text1'  style="color: #d8d8d9;">
+                    +
+                </view>
+            </view>
+          </view>
+          <view wx:for="{{urls}}">
+              <view class='guanbi' bindtap='guanbi' data-id='{{index}}'>
+                x
+              </view>
+              <image src='{{item}}' mode="aspectFill" class="item1"></image>
+          </view>
+        </view>   -->
+    </view> 
+      </view>
+
+        
+      
+   
+
+<!-- <view class="search-keyword">
+        <view class="search-keyword-title">标签选择</view>
+        <view wx:for="{{hotTag}}" class="search-keyword-item {{item.isSelect?'huise':''}}" data-keyword="{{item.name}}" bindtap="searchByTag" data-id='{{item.id}}'>{{item.name}}</view>        
+    </view> -->
+    <view class='kongge'>
+    
+    </view>
+
+    <button class="ar_book" formType="submit" disabled="{{subdisabled}}" >确认发布</button>
+ </form>
+
+       
+        <toast hidden="{{bookToastHidden}}"  bindchange="hideToast">
+        提交成功
+        </toast>
+    </view>
+
+</view>

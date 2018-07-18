@@ -1,0 +1,18 @@
+<!--pages/myspot/myspot.wxml-->
+<view>
+  <view class='spotManage'>
+    <view class='spot' wx:for="{{list}}">
+      <view class='content'>{{item.name}}景区</view>
+      <view class='content'>
+        地址：{{item.address}}
+      </view>
+      <view class='content'>
+      申请时间:{{item.createAt}}
+      </view>
+      <view class='weizhi {{item.applicationStatus==3?"lvse":"red"}}' >
+        {{item.applicationStatus==1?"认证中":item.applicationStatus==2?"认证驳回":"通过认证"}}
+      </view>
+    </view>
+  
+  </view>
+</view>

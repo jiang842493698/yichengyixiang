@@ -1,0 +1,55 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo" style='background-image:url("http://antownimg.b0.upaiyun.com/mer/cp//atc-image-1527251672163.png"); background-size:cover;'>
+    <view>
+      <image class="userinfo-avatar" bindtap="bindViewTap" src="{{list.headicon==null||list.headicon==''?'/images/noLogin.png':list.headicon}}" background-size="cover"></image> 
+    </view>
+    
+     <view hidden='{{!dengluannniu}}' wx:if="{{list.level!=null}}" class='dengji'>
+      <view>
+        V{{list.level==null?0:list.level}}
+      </view>
+     </view> 
+    <!-- <view class='zhuce' bindtap='zhuce'>注册</view> -->
+    
+    <view class='tuichu' bindtap='tuichu'>
+    <image class='tuichuimage' src='http://antownimg.b0.upaiyun.com/mer/cp//atc-image-1527573681445.png'></image>
+    
+    </view>
+    <view class="username">
+      <view class="userinfo-nickname">
+        <text hidden='{{!dengluannniu}}'>{{list.name}}</text>
+        <button class='wxlogin' hidden='{{dengluannniu}}' open-type="getUserInfo" bindgetuserinfo="wxlogins">
+        登录
+        </button>
+      </view>
+      
+      <view class="userinfo-desc">{{list.description==null?"暂无个人资料":list.description}}</view>
+    </view>
+  </view>
+  <view class="linestyle"></view>
+  <view>
+    <block wx:for="{{userListInfo}}">
+      <view bindtap='active_page' data-name="{{item.text}}" class="weui_cell">
+        <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
+        <view class="weui_cell_bd" >
+            <view class="weui_cell_bd_p">{{item.text}}</view>
+        </view>
+         <view class="with_arrow"></view>
+
+      </view>
+      
+         <view class="nav_top"  wx:if="{{item.text=='我的订单'}}">
+             
+                <block wx:for="{{navTopItems}}" wx:key="item.id">
+                  <view class="nav_top_items" data-index="{{index}}" bindtap='navToorder' data-title='{{item.title}}' data-id="{{item.id}}">
+                    <image src="{{item.icon}}" mode="aspectFill"></image>
+                    <text>{{item.title}}</text>
+                  </view>
+                </block>
+            
+         </view>
+      <view wx:if="{{index==4}}"  class='linestyle'></view>
+    </block>
+  </view>
+</view>

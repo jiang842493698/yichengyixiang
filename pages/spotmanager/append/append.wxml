@@ -1,0 +1,34 @@
+
+<view class="container">
+    <view class="search-bar">
+    <view class="search {{filter.length>0?'':'search_not_value'}}">
+        <view class='search-body'>
+            <view class='search-input'>
+                <view class="search-box">
+                    <view class='search-icon'>
+                        <i class="iconfont icon-search"></i>
+                    </view>
+                    <input type='search' bindinput='viewSearchs' placeholder='请输入用户昵称搜索' ></input>
+                    
+                </view>
+            </view>
+            <view class='search-btn' bindtap='viewSearch'>
+                <view>搜索</view>
+            </view>
+        </view>
+    </view>
+    </view>
+     <view class='body_in'>  
+        <block wx:for="{{datalist}}">
+          <view class='body_in_name'>
+          
+            <view>
+              <view class='title_n'>{{item.name}}</view>
+              <view class='content'>
+                  <view data-userid='{{item.id}}' data-unionid='{{item.unionid}}' bindtap='configData' class='section_book'>设置</view>
+              </view>
+            </view>
+          </view>
+         </block>
+    </view>
+</view>

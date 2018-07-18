@@ -1,0 +1,140 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #F7F7F7;
+}
+
+.header {
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36rpx;
+    background-color: #56abe4;
+    border-bottom: 1px solid #eee;
+}
+
+.topic-item {
+    padding:30rpx;
+    /* border-bottom: 1px solid #eee; */
+    width:85%;
+
+}
+
+.topic-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.member-avatar {
+  width:95rpx;
+  height:95rpx;
+  position:relative;
+  left:-30rpx;
+}
+
+.topic-info {
+    flex:1;
+    font-size:24rpx;
+    background-color:white;
+    width:525rpx;
+    /* border:1rpx solid red; */
+    position:relative;
+    left:12rpx;
+    box-shadow:3rpx 10rpx 14rpx rgba(52,154,240,.1);
+
+
+}
+
+.topic-inner {
+    display: flex;
+    align-items: center;
+    color:#777;
+}
+
+.topic-title {
+    height:120rpx;
+    line-height: 1.4;
+    box-sizing: border-box;
+    padding-top: 10rpx;
+    overflow:hidden;
+    width: 100%;
+}
+.content{
+  width:97%;
+  height:80%;
+
+}
+.topic-left {
+    flex:1;
+    margin-left: 15rpx;
+}
+.biaoti{
+  margin-top: 20rpx;
+}
+.node-name {
+    display: inline-block;
+    margin-right: 20rpx;
+    padding:5rpx 10rpx;
+    border-radius: 5rpx;
+    background-color: #eee;
+}
+
+.reply-num {
+    display: inline-block;
+    margin-left: 50rpx;
+    padding:10rpx;
+    height:22rpx;
+    background-color: #ddd;
+    border-radius: 5rpx;   
+    color:#777; 
+}
+
+.member-nickname {
+  color: #1C1C1C;
+  font-size:28rpx;
+
+}
+.kongOrder{
+  width: 100%;
+  /* border: 1rpx solid #333; */
+
+  
+  /* height: 600rpx; */
+  
+}
+.kongOrder_image{
+  width: 400rpx;
+  height: 300rpx;
+  margin: 100rpx auto;
+  /* border: 1rpx solid #8fc31f; */
+}
+.kongOrder_image image{
+  width:320rpx;
+  margin-top: -75rpx;
+  /* height: 300rpx; */
+}
+.kongOrder_text{
+  margin-top: -50rpx;
+  font-size: 32rpx;
+  color: #BDBDBD;
+}
+.kongOrder_button{
+  width: 200rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #BDBDBD;
+  font-size: 36rpx;
+  border: 1rpx solid #BDBDBD;
+  /* border-right: 100%; */
+  border-radius: 30rpx;
+  margin : 156rpx auto;
+}
+.nodata{
+  text-align: center;
+  color:#333;
+}

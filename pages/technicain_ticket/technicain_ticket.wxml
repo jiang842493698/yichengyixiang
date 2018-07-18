@@ -1,0 +1,105 @@
+<view class="container">
+<view class="ar_coverpath">
+    <image class='image' src="{{img}}" mode="aspectFill"></image>
+    <view class='titleinfo'>
+    <view>{{title}}</view>
+    <view class="price"><text class='fuhao'>￥</text>{{price}}<text class='text'>起</text></view>
+     <view class="volume">
+     月售{{monthlySave.count==null?"0":monthlySave.count}}笔
+     <view class='todaySet'>
+     当天可定
+     </view>
+    </view>
+    <view class="title">
+      
+    </view>
+    </view>
+    
+    <view class="ar-date">  
+      <picker mode="date" value="{{date}}" start="{{startDateTime}}" end="2019-12-30" bindchange="bindDateChange">  
+        <view class="picker">
+        <!-- <image src="../images/calendar.png"></image> -->
+          日期 : {{dates}}
+        </view>  
+      </picker>  
+    </view>  
+     
+    
+
+ 
+  <view class='tictype'>
+    <view class='seltype' >{{description=="门票"?"选择票种":description=="游玩"?"选择项目点":"选择规格"}}</view>
+      <view class='selul'>
+        <view wx:for="{{list}}" class='selli {{aniStyle?"slideup":"slidedown"}}' catchtap='inbtn' >
+           <view class='desc1' bindtap='buyticketinfo'>
+                <view class='lefttit'>{{item.name}}</view>
+                <view class='descfont'>成人是指1.5米以上,开园时间：10：00~20:30(具体时间以景区当天通知为准)</view>
+                <view class='mustknow'>预订须知</view>
+           </view>
+           <view class='desc2'>
+              <view class="price">
+                    <text class='fuhao'>￥</text>{{item.price}}<text class='text'></text>
+              </view>
+              <view wx:if="{{item.stock>0}}">
+                 <text class='stock'>库存：{{item.stock-(item.ecnum>0?item.ecnum:0)}}</text>
+              </view>
+           </view>
+           <view class='desc3'>
+              <view wx:if="{{((item.stock-(item.ecnum>0?item.ecnum:0))>0)||item.stock==0}}" bindtap='buyticketding' data-id='{{item.id}}'  data-img="{{item.goodimg}}" data-name="{{item.name}}" data-isday='{{item.isday}}' data-spotid='{{item.spotid}}' data-price="{{item.price}}" class='combut'>预定</view>
+
+
+                <view wx:if="{{(item.stock-(item.ecnum>0?item.ecnum:0))<=0&&item.stock>0}}" style="background:#cdcdcd"  class='combut'>预定</view>
+           </view>
+        </view>  
+      </view>
+  </view>
+
+<!-- <view class='detail'>
+    <view class='spottit'>景点介绍</view>
+        <image  wx:for="{{iimages}}" wx:for-item="img"  class='image2' src="{{img}}!trainvipimg" mode="aspectFill"></image>
+        <view class='introduce'>{{spot.spotdesc}}</view>
+</view> -->
+ 
+</view>
+
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view class='popup' animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class='centit'> 预定须知</view>
+  <view class='tickettit'>{{title}}</view>
+  <view class='reserveul'>
+     <view class='reserveli'>
+         <view class='poptit'>费用包含</view>
+         <view class='restext'>成人是指1.5米以上,开园时间：10：00~20:30(具体时间以景区当天通知为准)           </view>
+     </view>
+
+       <view class='reserveli'>
+         <view class='poptit'>预定规则</view>
+         <view class='restext'>预定时间:6点之前可定今日票</view>
+         <view class='restext'>入园限制:出票后可立即入园</view>
+     </view>
+
+      <view class='reserveli'>
+         <view class='poptit'>补充说明</view>
+         <view class='restext'>已取票的订单不可以退改，订单不支持拆分退款</view>
+         <view class='restext'>每单最多20张</view>
+     </view>
+        <view class='reserveli'>
+         <view class='poptit'>入园方式</view>
+         <view class='restext'>用兑换凭证直接入园。</view>
+         
+     </view>
+        <view class='reserveli'>
+         <view class='poptit'>商家服务时间</view>
+         <view class='restext'>周一至周日：08:00-22:00（时区所在地：北京市）</view>
+     </view>
+
+    <view class='reserveli'>
+         <view class='poptit'>温馨提示</view>
+         <view class='restext'>预定须知会受到时间等因素影响而稍有不同，具体对应的预定须知，可在选择入园日期后查看。</view>
+     </view>
+
+     <view class='complete' bindtap="hideModal" >完成</view>
+  </view>
+</view>
+
+</view>

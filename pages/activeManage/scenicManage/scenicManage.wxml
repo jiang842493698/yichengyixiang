@@ -1,0 +1,86 @@
+<view>
+  <view class='allActive'>
+    <view class='active'>
+      <view class='activeTitle'>请设置活动标题</view>
+      <view class='activeContent'>
+        <input placeholder="请输入活动标题" bindinput='activeTitle'></input>
+      </view>
+    </view>
+
+    <!-- <view wx:if='{{type==1}}' class='active'>
+     
+        <view class='content image'>
+          <view class='content_image'  bindtap='tianjia'>
+            <view wx:if='{{urls.length==0}}'>+</view>
+            <image style='width:50rpx;height:50rpx;' src='{{urls[0]}}'></image>
+          </view>
+          
+            
+        </view>
+    </view> -->
+    
+    <view wx:if='{{type==2}}' class='notsopt'>
+      <view class='reductionFull_title'>请设置满减金额</view>
+      <view class='setReductionFull'>
+        <view class='man'>
+        满
+        </view>
+        <view class='man_price'>
+          <input class='man_price_input' type="number" bindinput='manjian'></input>
+        </view>
+        <view class='jian'>
+        减
+        </view>
+        <view class='jian_price'>
+          <input class='jian_price_input' type="number" bindinput='jianshao'></input>
+        </view>
+      </view>
+      
+    </view>
+
+    <view wx:if='{{type==3}}' class='notsopt'>
+      <view class='reductionFull_title'>
+        立减额
+      </view>
+      <view class='lijiane'>
+        <input class='lijiane_input' placeholder="请输入新人首单立减价格" bindinput='lijianstart'></input>
+        <!-- <input placeholder="请输入最大立减额" bindinput='lijianend'></input> -->
+      </view>
+      
+      
+    </view>
+
+    <view class='activeInfo'>
+      <view class='activeInfo_content'>
+        活动详情
+      </view>
+      <view class='activeInfo_text'>
+        <textarea class='textInfo' placeholder-style='30rpx' placeholder="请输入活动详情" bindinput='activeInfo'>
+        
+        </textarea>
+        <view wx:if='{{type==1}}' class='active'>
+      
+          <view class='content image'>
+            <view class='content_image'  bindtap='tianjia'>
+              <view wx:if='{{urls.length==0}}'>+</view>
+              <image wx:if='{{urls.length>0}}' class='content_image_image' src='{{urls[0]}}'></image>
+            </view>
+            
+              
+          </view>
+        </view>
+      </view>
+      
+    </view>
+    
+    <!-- <view>
+      <view>选择景区</view>
+      <input bindtap=''></input>
+    </view> -->
+  </view>
+  <view class='tianjiahuodong'>
+    <view class='tianjiahuodong_text' bindtap='tianjiahuodong'>
+      添加活动
+    </view>
+  </view>
+</view>

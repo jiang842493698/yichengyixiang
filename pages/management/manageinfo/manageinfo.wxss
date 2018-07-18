@@ -1,0 +1,46 @@
+/* pages/management/manageinfo/manageinfo.wxss */
+.title{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  background-color: #eee;
+
+  line-height: 88rpx;
+}
+.title_name{
+  width:300rpx;
+  float:left;
+  padding-left:20rpx;
+}
+.title_price{
+  width:300rpx;
+  float:right;
+  padding-left:150rpx;
+
+}
+.content{
+  width: 100%;
+  font-size: 30rpx;
+  height: 150rpx;
+
+}
+.content_info{
+  width: 100%;
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+}
+.content_info_name{
+  padding-left: 20rpx;
+  line-height: 150rpx;
+}
+.content_info_right{
+  padding-left: 170rpx;
+  padding-top: 33rpx;
+}
+.content_info_date{
+  font-size: 26rpx;
+  color: #999;
+}
+.content_info_price{
+  padding-top: 10rpx;
+}

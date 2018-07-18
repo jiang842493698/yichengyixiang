@@ -1,0 +1,116 @@
+<view class="container">
+    <scroll-view  scroll-y="true"  class="page-body mg-30" bindscrolltolower="loadMore">
+      <!--list-->
+      <view class="nav_section">
+        <view wx:if="{{list}}">
+            <block wx:for="{{list}}" wx:key="item.id">
+                <view class="nav_section_items" bindtap="navigateDetail" data-id="{{item.id}}" data-name="{{item.name}}" data-description="{{item.description}}"  data-img="{{item.img}}">
+                    <!--image-->
+                   
+                    <view class="section_image" >
+                      <block wx:if="{{item.goodimg}}">
+                          <image src="{{item.goodimg}}!trainvipimg" mode="aspectFill"></image>
+                      </block>
+                      <block wx:else>
+                          <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                      </block>
+                    </view>
+                    <!--content-->
+                    <view class="section_cont" >
+                        <view class="section_cont_sub">
+                            <text>{{item.name}}</text>
+                        </view>
+                        <view class="section_cont_price" style="color:#000"> 
+                            <!-- <text class="section_cont_price">{{item.price}}</text> -->
+                            <view wx:if="{{}}">
+                            
+                            </view>
+                            <text class="section_cont_price">价格:{{item.allPrice}}元  折后:{{discount==null?item.discountPrice/100:discount}}元</text>
+                            <view>
+                            <text>定金{{(item.percentage==null||item.percentage=='')?100:item.percentage}}%</text><text>{{item.all==null?"":"合计："+item.all}}</text>        
+                            </view>
+                            <view><text>数量{{item.count}}</text></view>
+                        </view>
+                        <!-- <view>{{item.description}}</view> -->
+                    </view>
+                    <!--book-->
+                     <view class='ar_sevice_item'>
+                       <!-- <view class="section_book" >
+                          <view>{{}}</view>   
+                      </view>  -->
+                    </view> 
+                </view>
+            </block>
+        </view>
+        <view wx:else>暂无数据</view>     
+    </view>
+
+    <form bindsubmit="formSubmit">
+        <!-- <view class="row">
+            <text>订金：</text>
+             <input type="text" disabled="true" name="userName" value='30%' readOnly="readOnly"  />
+        </view> -->
+        <!-- <view class="row">
+             <text>折扣：</text>
+             <input type="text" disabled="true" name="userName" value='7.5折' readOnly="readOnly" />
+        </view> -->
+        <view class="row">
+            <text>红包：</text>
+            <view bindtap='hongbao'>
+              <input type="text" disabled="true" name="userName" value='{{hongbaoOffer.quota!=null?hongbaoOffer.quota:""}}' readOnly="readOnly"  />
+            </view>            
+        </view>
+        <view class="row">
+            <text>积分：</text>
+            <input type="text" disabled="true" name="userPassword" value='0'  readOnly="readOnly"  />
+        </view>
+        <view class="row">
+            <text>发票抬头：</text>
+            <input type="text" class='input' style="color:#000;"  name="userPassword" placeholder="请输入发票信息" />
+        </view>
+        <view class="row">
+            <text>纳税人识别号：</text>
+            <input type="text" style="color:#000;" name="userPassword" bindinput='' placeholder="请输入纳税人信息" />
+        </view>
+        <view class="row">
+            <text>备注：</text>
+            <input type="text" style="color:#000;" name="userPassword" placeholder="请输入备注" />
+        </view>
+        
+         <view class='row-b'>
+             共<text class='jiage'>{{count}}</text>件商品 小计<text class='jiage'>{{all}}</text>
+        </view>
+    </form>
+     </scroll-view>
+
+    <view class="search-bottom" style='text-align:right'>
+      <view class='f2'>
+        <view class='zongji'>总计：<text class='jiage'>{{discount==null?item.discountPrice/100:discount}}</text> 定金 : <text class='jiage'>{{percentage}}</text>预付 : <text class='jiage'>{{all}}</text></view>
+      </view>
+      <view class='f1'>
+        <view class="lijizhifu" bindtap="WeiXinPay">立即支付</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='hongbaoinfo' hidden='{{isHongbao}}'>
+  <view>
+    <view>请选择红包</view>
+  </view>
+  <view>
+    <view class='hongbao' wx:for='{{hongbaolist}}'>
+      <view>
+        {{item.typeOffer}}:{{item.quota}}
+      </view>
+      <view>
+        <text>{{item.cartType}}{{item.cardName}}</text>
+        <view>有效期:{{item.startTime}}-{{item.endTime}}</view>
+      </view> 
+
+      <view bindtap='shiyonghongbao' data-id='{{item.id}}'>
+      使用
+      </view>
+    </view>
+    
+  </view>
+</view>

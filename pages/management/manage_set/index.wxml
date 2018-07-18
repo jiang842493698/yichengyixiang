@@ -1,0 +1,19 @@
+<!--pages/management/manage_set/index.wxml-->
+<view class='zehkouyemian'>
+  <view class='zhekou'>
+    <view class='zhekou_title'>请设置折扣率</view>
+    <view class='zhekoucontent'>
+      <view class='zhekoushezhi'>
+        <input class='zhekouinput' bindinput='zhekoushezhi' type='number' placeholder='{{discount==null?"请输入折扣":discount}}'></input>
+        <view class='baifenhao'>%</view>
+      </view>
+    </view>
+    
+    
+    
+    
+  </view>
+  <view class='wanchenganniu' bindtap='submit'>
+    完成
+    </view>
+</view>

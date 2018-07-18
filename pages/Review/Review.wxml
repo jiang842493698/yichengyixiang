@@ -1,0 +1,84 @@
+<!--pages/Review/Review.wxml-->
+<!-- <text>pages/Review/Review.wxml</text> -->
+<view class='review'>
+  <view class='review_body'>
+    <view class='review_body_left'>
+      <view class='review_body_left_in {{chuliId==1?"isSelect":""}}' bindtap='chuli' data-id='1'>待处理</view>
+    </view>
+    <view class='review_body_left'>
+      <view class='review_body_left_in {{chuliId==2?"isSelect":""}}' bindtap='chuli' data-id='2'>已处理</view>
+    </view>
+  </view>
+  <view class='review_contents' wx:for="{{list}}">
+     
+    <form report-submit="true" bindsubmit="formSubmit" bindreset="formReset" data-id='{{item.id}}'>
+      <view class='info'>
+      <view class='time'>{{item.createAt}}</view>
+          <view class='infoimg'  >
+            <image mode="aspectFill" style='width:55px;height:55px;border-radius:100%' src="{{item.headicon}}"></image>
+          </view>
+          <view class='inforight'>
+            <view class='name'>{{item.username}}</view>
+            <view class='address'>{{item.name}}景区：{{item.address}}{{item.addressInfo}}号</view>
+          </view>
+     </view> 
+      <view class='desc'>
+        {{item.content}}
+      </view>
+      <view class='imgul'>
+            <view class='imgli one' wx:for="{{item.image}}" wx:for-item="images" style='background-image:url("{{images}}")'></view>
+            
+      </view>
+      <!-- <view class='status'>
+        <button class='passstatus nopass' formType='{{item.applicationStatus==1?"reset":""}}' data-id='{{item.id}}'>{{item.applicationStatus==3?"未通过":"不通过"}}
+        </button>
+        <button class='passstatus pass' formType='{{item.applicationStatus==1?"submit":""}}' >
+        {{item.applicationStatus==3?"已通过":"通过"}}
+        </button>
+          
+      </view> -->
+      <view class='status' wx:if="{{item.applicationStatus==1}}">
+        <button class='passstatus nopass' formType='reset' data-id='{{item.id}}'>驳回
+        </button>
+        <button class='passstatus pass' formType='submit' >
+        通过
+        </button>
+      </view>
+      <view class='status' wx:if="{{item.applicationStatus==2}}">
+        <view class='passstatuss'>已驳回</view>
+       
+      </view>
+      <view class='status' wx:if="{{item.applicationStatus==3}}">
+        <view class='passstatuss'>已通过</view>
+        
+      </view>
+    </form>
+  </view>   
+
+  
+
+
+  <!-- <view class='review_contents'>
+     <view class='info'>
+      <view class='time'>2018/5/1</view>
+          <view class='infoimg'>
+          </view>
+          <view class='inforight'>
+            <view class='name'>张宇</view>
+            <view class='address'>九寨沟景区：九寨沟景区九寨沟景区</view>
+          </view>
+     </view> 
+      <view class='desc'>请填写常用手机号和邮箱请填写常用手机号和邮箱请填写常用手机号和邮箱请填写常用手机号和邮箱请填写          常用手机号和邮箱
+      </view>
+      <view class='imgul'>
+            <view class='imgli one'></view>
+            <view class='imgli two'></view>
+            <view class='imgli three'></view>
+      </view>
+      <view class='status'>
+           <view class='passstatus nopass'>不通过</view>
+           <view class='passstatus pass'>通过</view>
+      </view>
+  </view>   -->
+ 
+</view>

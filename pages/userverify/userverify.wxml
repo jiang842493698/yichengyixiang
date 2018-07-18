@@ -1,0 +1,56 @@
+<!--pages/Review/Review.wxml-->
+<!-- <text>pages/Review/Review.wxml</text> -->
+<view class='review'>
+  <view class='review_body'>
+    <view class='review_body_left'>
+      <view class='review_body_left_in {{chuliId==1?"isSelect":""}}' bindtap='chuli' data-id='1'>待处理</view>
+    </view>
+    <view class='review_body_left'>
+      <view class='review_body_left_in {{chuliId==2?"isSelect":""}}' bindtap='chuli' data-id='2'>已处理</view>
+    </view>
+  </view>
+  <view class='review_contents' wx:for="{{list}}">
+     <view class='info'>
+          <view class='time'>{{item.createAt}}</view>
+          <view class='infoimg' style='background-image:url("{{item.headicon}}");'>
+          </view>
+          <view class='inforight'>
+            <view class='name'>{{item.username}}</view>
+            <view class='address'>公司名称：{{item.companyName}}</view>
+            
+          </view>
+     </view> 
+      <view class='desc'>
+        发票信息：
+        {{item.billingInfo}}
+      </view>
+      <view class='imgul'>
+            <view class='imgli one' wx:for="{{item.businesslicenseurl}}" wx:for-item="images" style='background-image:url("{{images}}")'></view>
+            
+      </view>
+      <view class='level'>
+        设置等级：<picker disabled='{{item.applicationStatus!=1}}' class='setlevel' mode="selector" value="{{index}}"  range="{{levelArray}}" bindchange='selectLevel' data-id='{{item.id}}'>
+        {{item.level==null?"请设置等级":item.level}}
+        </picker> 
+      </view>
+       <view class='status' wx:if="{{item.applicationStatus==1}}">
+           <view class='passstatus nopass' bindtap='cancel' data-id='{{item.id}}'>驳回</view>
+           <view class='passstatus pass' bindtap='concur' data-id='{{item.id}}'>通过</view>
+      </view> 
+      <!-- <view class='status' wx:if="{{item.applicationStatus==1}}">
+        <button class='passstatus nopass' formType='reset' data-id='{{item.id}}'>驳回
+        </button>
+        <button class='passstatus pass' formType='submit' >
+        通过
+        </button>
+      </view> -->
+      <view class='status' wx:if="{{item.applicationStatus==2}}">
+        <view class='passstatuss'>已驳回</view>
+       
+      </view>
+      <view class='status' wx:if="{{item.applicationStatus==3}}">
+        <view class='passstatuss'>已通过</view>
+        
+      </view>
+  </view>   
+</view>

@@ -1,0 +1,22 @@
+<!--pages/myInformation/myInformation.wxml-->
+<view>
+  <view class='body'>
+    <view class='body_in'>  <block wx:for="{{datalist}}">
+      <view class='body_in_name'>
+      
+        <view>
+          <view class='title_n'>{{item.name}}</view>
+         
+           <view class='content'>
+              <view data-userid='{{item.id}}' bindtap='delManager' class='add'>删除</view>
+           </view>
+        </view>
+     
+      </view>
+         </block>
+    </view>
+    <view class='submit' bindtap='submit'>
+      <view>添加管理员</view>
+    </view>
+  </view>
+</view>

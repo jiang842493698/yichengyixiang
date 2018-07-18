@@ -1,0 +1,85 @@
+<!--pages/myInformation/myInformation.wxml-->
+<view>
+  <view class='body'>
+    <view class='body_in'>
+      <view class='body_in_headicon'>
+        <view class='headicon'>
+          <image class='headicon_image' style='width:100rpx;height:100rpx;' src="{{headicon!=null?headicon:'/images/heacicon.png'}}"></image>
+        </view>
+        <view class='update_headicon_text'>
+          <!-- <text>修改头像</text> -->
+        </view>
+      </view>
+      <view class='body_in_name'>
+        <view>
+          <view class='title_n'>昵称</view>
+          <view class='content'>{{name}}</view>
+        </view>
+      </view>
+      <view class='body_in_name'>
+        <view>
+          <view class='title_n'>手机号码</view>
+          <view class='content'>{{list.mobile}}</view>
+        </view>
+      </view>
+      <view class='body_in_name'>
+        <view>
+          <view class='title_n'>公司名称</view>
+          <view class='content'>
+            <input class='companyName' disabled='true' bindinput='companyName' placeholder='{{companyName}}'>{{companyName==null?"":companyName}}</input>
+          </view>
+        </view>
+      </view>
+      <!-- <view > -->
+        <view class='body_in_name'>
+          <view class='title_n'>营业执照</view>
+          <view class='content image'>
+            <view class='content_image' wx:for="{{urls}}">
+              <image  style='width:50rpx;height:50rpx;' bindlongtap='deleteImage' data-item='{{item}}'  src="{{item}}"></image>
+              <!--页面改为只读的2018/6/5需求修改-->
+              <!-- <image  style='width:50rpx;height:50rpx;' bindlongtap='deleteImage' data-item='{{item}}' bindtap='tianjia' src="{{item}}"></image> -->
+            </view>
+            <!-- <view class='image_border' wx:if="{{urls.length==0}}" bindtap='tianjia'>
+              <text>+</text>
+            </view> -->
+            
+          </view>
+        </view>
+      <!-- </view> -->
+      <view class='body_in_name'>
+        <view>
+          <view class='title_n'>个性签名</view>
+          <view class='content descriptions'>
+            <textarea disabled='true' class='description' placeholder='{{list.description}}' bindinput="description" maxlength="60">
+            
+            </textarea>
+            <!-- <input bindinput='description' class='description' placeholder='{{list.description}}'>{{list.description}}</input> -->
+          </view>
+        </view>
+      </view>
+      <view class='body_in_name'>
+        <view>
+          <view class='title_n'>授权登录</view>
+          <view class='content'>
+            <view wx:if="{{!isAuthorized}}">
+              <button class='wxchatImage'  open-type="getUserInfo" bindgetuserinfo="wxchatImage"  style='background-image:url("http://antownimg.b0.upaiyun.com/mer/cp//atc-image-1527255456651.png")'>
+              <!-- <image class='wxchatImage' src='/images/wechat.png'></image> -->
+              </button>
+              
+            </view>
+            <view wx:else="{{isAuthorized}}">
+            <button class='wxchatImage' style='background-image:url("http://antownimg.b0.upaiyun.com/mer/cp//atc-image-1527255486507.png")' > 
+            <!-- <image class='wxchatImage' src='/images/wxchat_select.png'></image> -->
+            </button>
+              
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class='submit' bindtap='submit'>
+      <view>保存修改</view>
+    </view> -->
+  </view>
+
+</view>

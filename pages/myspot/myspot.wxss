@@ -1,0 +1,20 @@
+/* pages/myspot/myspot.wxss */
+.spot{
+  font-size:30rpx;
+padding:20rpx;
+border-bottom:1rpx solid #eee
+}
+.content{
+  height: 45rpx;
+  line-height: 45rpx;
+}
+.weizhi{
+ width: 100%;
+ text-align: center;
+}
+.lvse{
+  color: greenyellow;
+}
+.red{
+  color: red
+}

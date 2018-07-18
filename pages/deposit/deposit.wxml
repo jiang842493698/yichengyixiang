@@ -1,0 +1,25 @@
+<!--pages/myInformation/myInformation.wxml-->
+<view>
+  <view class='body'>
+    <view class='body_in'>  <block wx:for="{{datalist}}">
+      <view class='body_in_name'>
+      
+        <view>
+          <view class='title_n'>{{item.goodid}}</view>
+         
+           <view class='content'>
+           %
+           </view>
+            <view class='content'>
+            <input bindinput='onphone'  focus="true" data-id='{{item.id}}'  value='{{item.percentage}}' class='companyName'   placeholder='{{item.percentage}}'></input>
+          </view>
+        </view>
+     
+      </view>
+         </block>
+    </view>
+    <view class='submit' bindtap='submit'>
+      <view>保存修改</view>
+    </view>
+  </view>
+</view>

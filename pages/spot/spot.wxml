@@ -1,0 +1,31 @@
+
+<view class="container1">
+   
+ <view wx:for="{{list}}" class='spot' data-spotid="{{item.spotid}}" >
+      <view style='width:100%;' >
+      <view class="section_image" bindtap='navView' data-spotid='{{item.spotid}}' >
+            <block wx:if="{{item.spotimg}}">
+                <image src="{{item.spotimg}}" mode="aspectFill"></image>
+            </block>
+             <block wx:else>
+                <image src="../../images/huochebanner.png" mode="aspectFill"></image>
+            </block> 
+        </view>
+         <view class="spot-title-con">
+          
+            <view>
+              <text style='font-size:12px;color:#333;'>【{{item.spotname}}】{{item.spotdesc}}</text>
+            </view>
+         </view>  
+         
+       
+    </view>
+     <view class="spot_b">
+          
+        <view class='spot_b_item' bindtap='changdi' data-=''>预定({{item.ss}})</view>
+        <view class='spot_b_item' bindtap='changdi'>场地({{item.cc}})</view>
+        <view class='spot_b_item' bindtap='changdi'>推荐(0)</view>
+        <view class='spot_b_item'>评论(0)</view>          
+      </view>
+  </view>
+</view>

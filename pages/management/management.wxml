@@ -1,0 +1,35 @@
+<!--pages/management/management.wxml-->
+<view class='role'>
+  <view class='title'>
+    <!-- <view class='title_name'>
+       <view class='roleName' wx:for="{{roleName}}" bindtap='isSelect' data-name='{{item.name}}'>
+      <view class='title_name_content'>{{item.name}}</view>
+      <view class='title_name_price'>总额：￥{{allPrice==null?0:allPrice}}</view>
+      </view> 
+
+    </view> -->
+    <view class='title_content'>
+      <view class='content_role' wx:for="{{rolecontent}}" bindtap='' data-id='{{item.id}}' data-name='{{item.name}}' data-price='{{item.price==null?0:item.price}}'>
+        <view class='content'>
+          <view class='content_image'>
+            <image mode="aspectFit" class='image' src="{{item.headicon}}"></image>
+          </view>
+          <view class='content_content'>
+            <view class='content_name'>{{item.name}}</view>
+            
+            <view class='content_order'>
+              <!-- <view>{{item.orderDate}}</view> -->
+              <view class='content_money'>消费总额:￥{{item.price==null?0:item.price}}</view>
+            </view>
+            
+          </view>
+          <view class='shezhi1'>
+              <view class='shezhi' bindtap="shezhizhekou" data-id='{{item.id}}'>
+                 <i  class="iconfont icon-shezhi" ></i>
+              </view>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
